@@ -1,0 +1,382 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { Mail, Users, Zap, Heart, Award, ArrowRight, CheckCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import { companyInfo } from "@/data";
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 60 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6 }
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const benefits = [
+  {
+    icon: Zap,
+    title: "Growth Opportunities",
+    description: "Continuous learning and career advancement in cutting-edge technologies"
+  },
+  {
+    icon: Users,
+    title: "Collaborative Culture",
+    description: "Work with talented individuals in a supportive, inclusive environment"
+  },
+  {
+    icon: Heart,
+    title: "Work-Life Balance",
+    description: "Flexible schedules and remote work options to support your lifestyle"
+  },
+  {
+    icon: Award,
+    title: "Competitive Benefits",
+    description: "Attractive compensation packages and performance-based incentives"
+  }
+];
+
+export default function CareersPage() {
+  return (
+    <>
+      <Navigation />
+      
+      {/* Hero Section */}
+      <section className="pt-24 pb-12 bg-gradient-to-br from-white to-gray-50">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <motion.div
+            initial="initial"
+            animate="animate"
+            variants={staggerContainer}
+            className="mx-auto max-w-3xl text-center"
+          >
+            <motion.h1 
+              variants={fadeInUp}
+              className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+            >
+              Join Our <span className="text-primary">Team</span>
+            </motion.h1>
+            <motion.p 
+              variants={fadeInUp}
+              className="mt-6 text-lg leading-8 text-gray-600"
+            >
+              Be part of Africa's digital transformation. Help us build innovative 
+              solutions that make a real difference in businesses and communities.
+            </motion.p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Company Culture */}
+      <section className="py-16">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="mx-auto max-w-2xl text-center"
+          >
+            <motion.h2 
+              variants={fadeInUp}
+              className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+            >
+              Why Work at Aurora?
+            </motion.h2>
+            <motion.p 
+              variants={fadeInUp}
+              className="mt-4 text-lg leading-8 text-gray-600"
+            >
+              We're more than just a software company - we're a family building the future
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:grid-cols-2 lg:max-w-none"
+          >
+            {benefits.map((benefit) => (
+              <motion.div key={benefit.title} variants={fadeInUp}>
+                <Card className="h-full hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div className="flex items-center space-x-3">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                        <benefit.icon className="h-6 w-6 text-primary" />
+                      </div>
+                      <CardTitle>{benefit.title}</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="text-base">
+                      {benefit.description}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Our Values in Practice */}
+      <section className="py-16 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="mx-auto max-w-2xl text-center"
+          >
+            <motion.h2 
+              variants={fadeInUp}
+              className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+            >
+              Our Values in Action
+            </motion.h2>
+            <motion.p 
+              variants={fadeInUp}
+              className="mt-4 text-lg leading-8 text-gray-600"
+            >
+              How we live our core values every day at Aurora Software Labs
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="mx-auto mt-16 max-w-3xl"
+          >
+            <div className="space-y-8">
+              {[
+                {
+                  value: "Innovation",
+                  description: "We encourage experimentation, embrace new technologies, and support creative problem-solving approaches."
+                },
+                {
+                  value: "Reliability",
+                  description: "Our team members can depend on each other to deliver quality work consistently and meet commitments."
+                },
+                {
+                  value: "Collaboration", 
+                  description: "We foster open communication, knowledge sharing, and teamwork across all projects and departments."
+                },
+                {
+                  value: "Integrity",
+                  description: "We maintain transparency in our processes, honest communication, and ethical practices in all interactions."
+                },
+                {
+                  value: "Impact",
+                  description: "Every role contributes meaningfully to our mission of empowering African businesses through technology."
+                }
+              ].map((item, index) => (
+                <motion.div key={item.value} variants={fadeInUp}>
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold">
+                        {index + 1}
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900">{item.value}</h3>
+                      <p className="mt-2 text-gray-600">{item.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Current Opportunities */}
+      <section className="py-16">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="mx-auto max-w-2xl text-center"
+          >
+            <motion.h2 
+              variants={fadeInUp}
+              className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+            >
+              Current Opportunities
+            </motion.h2>
+            <motion.p 
+              variants={fadeInUp}
+              className="mt-4 text-lg leading-8 text-gray-600"
+            >
+              We're always looking for talented individuals to join our growing team
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="mx-auto mt-16 max-w-3xl"
+          >
+            <motion.div variants={fadeInUp}>
+              <Card className="text-center">
+                <CardContent className="p-12">
+                  <Users className="h-16 w-16 text-primary mx-auto mb-6" />
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    Growing Team, Future Opportunities
+                  </h3>
+                  <p className="text-lg text-gray-600 mb-8">
+                    While we don't have specific openings at the moment, we're always 
+                    interested in connecting with talented developers, designers, and 
+                    digital strategists who share our passion for African tech innovation.
+                  </p>
+                  <div className="space-y-4">
+                    <h4 className="text-lg font-semibold text-gray-900">We're particularly interested in:</h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
+                      <div className="flex items-center space-x-2">
+                        <CheckCircle className="h-5 w-5 text-accent flex-shrink-0" />
+                        <span className="text-gray-600">Frontend Developers</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <CheckCircle className="h-5 w-5 text-accent flex-shrink-0" />
+                        <span className="text-gray-600">Backend Developers</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <CheckCircle className="h-5 w-5 text-accent flex-shrink-0" />
+                        <span className="text-gray-600">UI/UX Designers</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <CheckCircle className="h-5 w-5 text-accent flex-shrink-0" />
+                        <span className="text-gray-600">Project Managers</span>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Application Process */}
+      <section className="py-16 bg-primary text-primary-foreground">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="mx-auto max-w-2xl text-center"
+          >
+            <motion.h2 
+              variants={fadeInUp}
+              className="text-3xl font-bold tracking-tight sm:text-4xl"
+            >
+              How to Apply
+            </motion.h2>
+            <motion.p 
+              variants={fadeInUp}
+              className="mt-4 text-lg leading-8 text-primary-foreground/80"
+            >
+              Ready to be part of something amazing? Here's how to get started
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="mx-auto mt-16 max-w-3xl"
+          >
+            <motion.div variants={fadeInUp}>
+              <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+                <div className="text-center">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent text-accent-foreground font-bold text-xl mx-auto mb-4">
+                    1
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">Send Your Portfolio</h3>
+                  <p className="text-sm text-primary-foreground/80">
+                    Share your best work and tell us about your experience
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent text-accent-foreground font-bold text-xl mx-auto mb-4">
+                    2
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">Initial Chat</h3>
+                  <p className="text-sm text-primary-foreground/80">
+                    Let's get to know each other and discuss opportunities
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent text-accent-foreground font-bold text-xl mx-auto mb-4">
+                    3
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">Join the Team</h3>
+                  <p className="text-sm text-primary-foreground/80">
+                    Start building amazing solutions together
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Contact for Careers */}
+      <section className="py-16 bg-accent">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="mx-auto max-w-2xl text-center"
+          >
+            <h2 className="text-3xl font-bold tracking-tight text-accent-foreground sm:text-4xl">
+              Ready to Join Us?
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-accent-foreground/80">
+              Send us your portfolio and let's start a conversation about how you 
+              can contribute to Aurora Software Labs.
+            </p>
+            <div className="mt-10 flex items-center justify-center gap-x-6">
+              <Button size="lg" variant="secondary" asChild>
+                <Link href={`mailto:${companyInfo.email}?subject=Career Opportunity - Portfolio Submission`}>
+                  Send Your Portfolio
+                  <Mail className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button variant="outline" size="lg" className="border-accent-foreground text-accent-foreground hover:bg-accent-foreground hover:text-accent" asChild>
+                <Link href="/contact">
+                  Learn More About Us
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <Footer />
+    </>
+  );
+}

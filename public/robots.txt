@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://aurorasoftwarelabs.com/sitemap.xml
+
+# Disallow admin areas if any
+# Disallow: /admin/

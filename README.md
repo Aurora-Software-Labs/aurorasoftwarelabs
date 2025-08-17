@@ -1,36 +1,173 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aurora Software Labs Website
 
-## Getting Started
+A professional, modern website for Aurora Software Labs - a Ghana-based software development agency. Built with Next.js, Tailwind CSS, shadcn/ui, and Framer Motion.
 
-First, run the development server:
+## 🌟 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Modern Design**: Clean, professional design with smooth animations
+- **Responsive**: Fully responsive across desktop, tablet, and mobile devices
+- **SEO Optimized**: Comprehensive meta tags, Open Graph, and Twitter Card support
+- **Animated**: Smooth page transitions and scroll-based animations using Framer Motion
+- **Accessible**: Built with accessibility best practices
+- **Performance**: Optimized for speed and Core Web Vitals
+- **Type Safe**: Full TypeScript implementation
+
+## 🚀 Tech Stack
+
+- **Framework**: Next.js 15.4.6
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Components**: shadcn/ui
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Fonts**: Poppins (Google Fonts)
+
+## 📁 Project Structure
+
+```
+src/
+├── app/                 # App Router pages
+│   ├── about/          # About page
+│   ├── services/       # Services page
+│   ├── portfolio/      # Portfolio page
+│   ├── careers/        # Careers page
+│   ├── contact/        # Contact page
+│   ├── globals.css     # Global styles
+│   ├── layout.tsx      # Root layout
+│   └── page.tsx        # Homepage
+├── components/         # React components
+│   ├── ui/            # shadcn/ui components
+│   ├── Navigation.tsx  # Main navigation
+│   └── Footer.tsx      # Footer component
+├── data/              # Static data
+│   └── index.ts       # Company info, projects, testimonials
+└── lib/              # Utilities
+    └── utils.ts       # Helper functions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Brand Colors
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Primary**: `#123524` (Dark green)
+- **Accent**: `#2ecc71` (Green)
+- **Background**: White
+- **Text**: Various shades of gray
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📄 Pages
 
-## Learn More
+1. **Home** (`/`) - Hero section, services overview, featured projects, testimonials
+2. **About** (`/about`) - Company story, mission/vision/values, why choose us
+3. **Services** (`/services`) - Web development and software consulting details
+4. **Portfolio** (`/portfolio`) - Showcase of completed projects
+5. **Careers** (`/careers`) - Job opportunities and company culture
+6. **Contact** (`/contact`) - Contact form, FAQ, and company information
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Getting Started
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Clone the repository**:
+   ```bash
+   git clone <repository-url>
+   cd aurorasoftwarelabs
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-## Deploy on Vercel
+3. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. **Open your browser**:
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🏗️ Build and Deploy
+
+### Development
+```bash
+npm run dev
+```
+
+### Production Build
+```bash
+npm run build
+npm start
+```
+
+### Deploy to Vercel
+This project is optimized for Vercel deployment:
+
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Vercel will automatically build and deploy your site
+
+Or use the Vercel CLI:
+```bash
+npm i -g vercel
+vercel
+```
+
+## 🔧 Configuration
+
+### Environment Variables
+Create a `.env.local` file for any environment-specific variables:
+
+```env
+# Add any environment variables here
+NEXT_PUBLIC_SITE_URL=https://yourdomain.com
+```
+
+### Contact Form
+The contact form currently uses a mailto link as a fallback. For production, consider integrating with:
+- Formspree
+- Netlify Forms
+- Custom API endpoint
+- EmailJS
+
+## 📱 Responsive Breakpoints
+
+- **Mobile**: < 640px
+- **Tablet**: 640px - 1024px
+- **Desktop**: > 1024px
+
+## ♿ Accessibility
+
+- Semantic HTML structure
+- ARIA labels where needed
+- Keyboard navigation support
+- Color contrast compliance
+- Screen reader friendly
+
+## 🎯 SEO Features
+
+- Meta titles and descriptions
+- Open Graph tags
+- Twitter Card support
+- Structured data ready
+- Sitemap support
+- Robot.txt ready
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is proprietary to Aurora Software Labs.
+
+## 📞 Support
+
+For support, email emmanuelcobbinah707@gmail.com
+
+## 🙏 Acknowledgments
+
+- Built with Next.js and React
+- UI components from shadcn/ui
+- Icons from Lucide
+- Animations by Framer Motion
+- Styled with Tailwind CSS
