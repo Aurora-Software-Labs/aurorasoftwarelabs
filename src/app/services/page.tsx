@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Code, Settings, ArrowRight, CheckCircle, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -32,6 +33,11 @@ const staggerContainer = {
 const serviceIcons = {
   "web-development": Code,
   "software-consulting": Settings,
+};
+
+const serviceImages = {
+  "web-development": "/webdev.png",
+  "software-consulting": "/consulting.png",
 };
 
 export default function ServicesPage() {
@@ -147,8 +153,27 @@ export default function ServicesPage() {
                       index % 2 === 1 ? "lg:order-1" : ""
                     }`}
                   >
-                    <div className="aspect-[4/3] bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg flex items-center justify-center">
-                      <IconComponent className="h-24 w-24 text-primary opacity-50" />
+                    <div className="aspect-[4/3] bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg flex items-center justify-center relative overflow-hidden">
+                      {serviceImages[
+                        service.id as keyof typeof serviceImages
+                      ] && (
+                        <Image
+                          src={
+                            serviceImages[
+                              service.id as keyof typeof serviceImages
+                            ]
+                          }
+                          alt={service.title}
+                          width={400}
+                          height={300}
+                          className="object-cover w-full h-full rounded-lg"
+                        />
+                      )}
+                      {!serviceImages[
+                        service.id as keyof typeof serviceImages
+                      ] && (
+                        <IconComponent className="h-24 w-24 text-primary opacity-50" />
+                      )}
                     </div>
 
                     {/* Process or benefits */}
