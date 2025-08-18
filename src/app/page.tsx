@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Code, Star, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -244,9 +245,19 @@ export default function HomePage() {
               <motion.div key={project.id} variants={fadeIn}>
                 <Card className="h-full hover:shadow-lg transition-shadow duration-300 group">
                   <div className="aspect-[16/9] bg-gray-200 rounded-t-lg relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                      <Code className="h-12 w-12 sm:h-16 sm:w-16 text-primary opacity-50" />
-                    </div>
+                    {project.image ? (
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                        <Code className="h-12 w-12 sm:h-16 sm:w-16 text-primary opacity-50" />
+                      </div>
+                    )}
                   </div>
                   <CardHeader>
                     <CardTitle className="group-hover:text-primary transition-colors duration-200 text-lg">
@@ -397,7 +408,7 @@ export default function HomePage() {
                 variant="outline"
                 size="lg"
                 asChild
-                className="w-full sm:w-auto border-accent-foreground text-accent-foreground hover:bg-accent-foreground hover:text-accent"
+                className="w-full sm:w-auto border-accent-foreground text-dark hover:bg-accent-foreground hover:text-accent"
               >
                 <Link href="/about">Learn More About Us</Link>
               </Button>

@@ -45,8 +45,8 @@ export const projects = [
     description:
       "A sophisticated e-commerce platform for an African fashion brand, featuring modern design, secure payments, and inventory management.",
     url: "https://laropakioki.com",
-    image: "/placeholder-project-1.jpg",
-    technologies: ["Next.js", "React", "Stripe", "Tailwind CSS"],
+    image: "/laropamockup.png",
+    technologies: ["Next.js", "React", "Paystack", "Tailwind CSS"],
     category: "E-Commerce",
   },
   {
@@ -54,9 +54,9 @@ export const projects = [
     title: "Lolyraced Ventures",
     description:
       "A unified multi-store e-commerce platform enabling multiple vendors to sell their products under one roof with advanced management features.",
-    url: "https://lolyracedventures.com",
-    image: "/placeholder-project-2.jpg",
-    technologies: ["React", "Node.js", "MongoDB", "Payment Integration"],
+    url: "https://lolyraced.com",
+    image: "/lolyracedmockup.png",
+    technologies: ["React", "Node.js", "PostgreSQL", "Payment Integration"],
     category: "E-Commerce Platform",
   },
   {
@@ -65,7 +65,7 @@ export const projects = [
     description:
       "A dynamic political campaign website for a University of Ghana SRC candidate, featuring event management and voter engagement tools.",
     url: "https://michaelyeng.com",
-    image: "/placeholder-project-3.jpg",
+    image: "/yengmockup.png",
     technologies: ["Next.js", "Framer Motion", "CMS Integration"],
     category: "Campaign Website",
   },
@@ -74,9 +74,9 @@ export const projects = [
 export const testimonials = [
   {
     id: 1,
-    name: "Sarah Johnson",
+    name: "Alberta Larbi",
     company: "Laropa Kioki",
-    role: "CEO",
+    role: "Founder",
     content:
       "Aurora Software Labs transformed our vision into a beautiful, functional e-commerce platform. Their attention to detail and technical expertise is outstanding.",
     rating: 5,
@@ -85,14 +85,14 @@ export const testimonials = [
     id: 2,
     name: "Michael Yeng",
     company: "Student Campaign",
-    role: "Candidate",
+    role: "UGSRC Vice President",
     content:
       "The team delivered a professional campaign website that perfectly captured our message. The site was fast, responsive, and helped us connect with voters effectively.",
     rating: 5,
   },
   {
     id: 3,
-    name: "David Osei",
+    name: "Grace Domfeh",
     company: "Lolyraced Ventures",
     role: "Founder",
     content:

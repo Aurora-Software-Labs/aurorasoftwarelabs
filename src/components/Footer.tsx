@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function Footer() {
@@ -8,9 +9,13 @@ export default function Footer() {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold">
-                Aurora <span className="text-accent">Software Labs</span>
-              </h3>
+              <Image
+                src="/auroralogodark.png"
+                alt="Aurora Software Labs"
+                width={200}
+                height={60}
+                className="h-12 w-auto"
+              />
               <p className="mt-4 text-sm leading-6 text-primary-foreground/80">
                 Crafting innovative, reliable, and scalable digital solutions
                 that empower businesses and communities across Africa.
@@ -73,14 +78,29 @@ export default function Footer() {
                     Ghana
                   </span>
                 </li>
+                <li className="flex items-center space-x-2">
+                  <Phone className="h-4 w-4" />
+                  <span className="text-sm text-primary-foreground/80">
+                    +233 50 048 6113
+                  </span>
+                </li>
               </ul>
             </div>
           </div>
         </div>
         <div className="mt-16 border-t border-primary-foreground/20 pt-8">
-          <p className="text-xs leading-5 text-primary-foreground/60">
-            &copy; 2025 Aurora Software Labs. All rights reserved.
-          </p>
+          <div className="flex flex-col items-center space-y-4">
+            <Image
+              src="/auroralogodark.png"
+              alt="Aurora Software Labs"
+              width={150}
+              height={45}
+              className="h-17 w-auto opacity-80"
+            />
+            <p className="text-xs leading-5 text-primary-foreground/60 text-center">
+              &copy; 2025 Aurora Software Labs. All rights reserved.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ExternalLink, Calendar, Tag, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -81,21 +82,50 @@ export default function PortfolioPage() {
               >
                 {/* Project Image */}
                 <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                  <div className="aspect-[4/3] bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg overflow-hidden shadow-lg">
-                    <div className="w-full h-full bg-gray-200 flex items-center justify-center relative">
-                      <div className="text-center">
-                        <div className="w-24 h-24 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                          <ExternalLink className="h-12 w-12 text-primary" />
+                  <div className="aspect-[4/3] bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg overflow-hidden shadow-lg relative">
+                    {project.image ? (
+                      <>
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          className="object-cover hover:scale-105 transition-transform duration-500"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                        {/* Overlay with project category */}
+                        <div className="absolute top-4 right-4 z-10">
+                          <span className="inline-flex items-center rounded-md bg-primary/90 backdrop-blur-sm px-3 py-1 text-sm font-medium text-primary-foreground">
+                            {project.category}
+                          </span>
                         </div>
-                        <p className="text-sm text-gray-600">Visit Live Site</p>
+                        {/* Hover overlay */}
+                        <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                          <div className="text-center text-white">
+                            <ExternalLink className="h-8 w-8 mx-auto mb-2" />
+                            <p className="text-sm font-medium">
+                              View Live Site
+                            </p>
+                          </div>
+                        </div>
+                      </>
+                    ) : (
+                      <div className="w-full h-full bg-gray-200 flex items-center justify-center relative">
+                        <div className="text-center">
+                          <div className="w-24 h-24 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <ExternalLink className="h-12 w-12 text-primary" />
+                          </div>
+                          <p className="text-sm text-gray-600">
+                            Visit Live Site
+                          </p>
+                        </div>
+                        {/* Overlay with project category */}
+                        <div className="absolute top-4 right-4">
+                          <span className="inline-flex items-center rounded-md bg-primary/90 px-3 py-1 text-sm font-medium text-primary-foreground">
+                            {project.category}
+                          </span>
+                        </div>
                       </div>
-                      {/* Overlay with project category */}
-                      <div className="absolute top-4 right-4">
-                        <span className="inline-flex items-center rounded-md bg-primary/90 px-3 py-1 text-sm font-medium text-primary-foreground">
-                          {project.category}
-                        </span>
-                      </div>
-                    </div>
+                    )}
                   </div>
                 </div>
 
