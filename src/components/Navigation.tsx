@@ -20,40 +20,30 @@ const navigation = [
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Close mobile menu when screen size changes to desktop
+  // Close mobile menu when resizing to desktop
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
         setMobileMenuOpen(false);
       }
     };
-
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Prevent body scroll when mobile menu is open
+  // Prevent background scroll when menu is open
   useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "unset";
     return () => {
       document.body.style.overflow = "unset";
     };
   }, [mobileMenuOpen]);
 
-  const closeMobileMenu = () => {
-    setMobileMenuOpen(false);
-  };
-
   return (
     <>
-      <header className="fixed w-full max-w-full top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200/20">
+      <header className="fixed w-screen top-0 left-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200/20">
         <nav
-          className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8 overflow-hidden"
+          className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
           aria-label="Global"
         >
           {/* Logo */}
@@ -61,14 +51,14 @@ export default function Navigation() {
             <Link
               href="/"
               className="flex items-center"
-              onClick={closeMobileMenu}
+              onClick={() => setMobileMenuOpen(false)}
             >
               <Image
                 src={auroraLogoLight}
                 alt="Aurora Software Labs"
-                width={100}
+                width={120}
                 height={40}
-                className="w-auto max-w-[120px] sm:max-w-none"
+                className="w-auto h-auto"
                 priority
               />
             </Link>
@@ -78,22 +68,22 @@ export default function Navigation() {
           <div className="flex lg:hidden">
             <Button
               variant="ghost"
-              size="sm"
+              size="icon"
               className="p-2"
-              onClick={() => setMobileMenuOpen(true)}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Open main menu"
             >
-              <Menu className="h-6 w-6" aria-hidden="true" />
+              <Menu className="h-20 w-20" />
             </Button>
           </div>
 
-          {/* Desktop navigation */}
+          {/* Desktop nav */}
           <div className="hidden lg:flex lg:gap-x-8 xl:gap-x-12">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-sm font-semibold leading-6 text-gray-900 hover:text-primary transition-colors duration-200"
+                className="text-sm font-semibold text-gray-900 hover:text-primary transition-colors"
               >
                 {item.name}
               </Link>
@@ -102,14 +92,14 @@ export default function Navigation() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <Button asChild size="default">
-              <Link href="/contact">Let's Build Together</Link>
+            <Button asChild>
+              <Link href="/contact">Let&apos;s Build Together</Link>
             </Button>
           </div>
         </nav>
       </header>
 
-      {/* Mobile menu overlay */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <>
@@ -118,73 +108,69 @@ export default function Navigation() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 bg-black/20 backdrop-blur-sm lg:hidden"
-              onClick={closeMobileMenu}
+              className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm"
+              onClick={() => setMobileMenuOpen(false)}
             />
 
-            {/* Mobile menu panel */}
+            {/* Slide-in panel */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "tween", duration: 0.3 }}
-              className="fixed inset-y-0 right-0 z-50 w-full max-w-xs sm:max-w-sm overflow-y-auto bg-white shadow-xl lg:hidden"
+              className="fixed inset-y-0 right-0 z-50 w-4/5 max-w-sm bg-white shadow-xl p-6 flex flex-col"
             >
-              <div className="flex items-center justify-between px-4 py-4 sm:px-6">
-                <Link
-                  href="/"
-                  className="flex items-center"
-                  onClick={closeMobileMenu}
-                >
+              {/* Header with logo & close button */}
+              <div className="flex items-center justify-between mb-6">
+                <Link href="/" onClick={() => setMobileMenuOpen(false)}>
                   <Image
                     src={auroraLogoLight}
                     alt="Aurora Software Labs"
-                    width={160}
-                    height={36}
-                    className="h-6 w-auto max-w-[100px]"
-                    priority
+                    width={120}
+                    height={40}
+                    className="w-auto h-auto"
                   />
                 </Link>
                 <Button
                   variant="ghost"
-                  size="sm"
-                  className="p-2"
-                  onClick={closeMobileMenu}
+                  size="icon"
+                  onClick={() => setMobileMenuOpen(false)}
                   aria-label="Close menu"
                 >
-                  <X className="h-6 w-6" aria-hidden="true" />
+                  <X className="h-6 w-6" />
                 </Button>
               </div>
 
-              <div className="mt-6 flow-root">
-                <div className="-my-6 divide-y divide-gray-500/10">
-                  <div className="space-y-2 py-6">
-                    {navigation.map((item, index) => (
-                      <motion.div
-                        key={item.name}
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                      >
-                        <Link
-                          href={item.href}
-                          className="block px-4 py-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-primary transition-colors duration-200 sm:px-6"
-                          onClick={closeMobileMenu}
-                        >
-                          {item.name}
-                        </Link>
-                      </motion.div>
-                    ))}
-                  </div>
+              {/* Nav links */}
+              <div className="flex flex-col gap-4">
+                {navigation.map((item, index) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                  >
+                    <Link
+                      href={item.href}
+                      className="block text-base font-semibold text-gray-900 hover:text-primary transition-colors"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
 
-                  <div className="py-6 px-4 sm:px-6">
-                    <Button asChild className="w-full justify-center">
-                      <Link href="/contact" onClick={closeMobileMenu}>
-                        Let's Build Together
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
+              {/* CTA at bottom */}
+              <div className="mt-auto pt-6">
+                <Button asChild className="w-full">
+                  <Link
+                    href="/contact"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Let&apos;s Build Together
+                  </Link>
+                </Button>
               </div>
             </motion.div>
           </>
