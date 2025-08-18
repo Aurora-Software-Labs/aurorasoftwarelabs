@@ -2,57 +2,75 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Mail, Users, Zap, Heart, Award, ArrowRight, CheckCircle } from "lucide-react";
+import {
+  Mail,
+  Users,
+  Zap,
+  Heart,
+  Award,
+  ArrowRight,
+  CheckCircle,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { companyInfo } from "@/data";
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 60 },
+const fadeIn = {
+  initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
+  transition: { duration: 0.4, ease: "easeOut" },
 };
 
 const staggerContainer = {
   animate: {
     transition: {
-      staggerChildren: 0.1
-    }
-  }
+      staggerChildren: 0.1,
+    },
+  },
 };
 
 const benefits = [
   {
     icon: Zap,
     title: "Growth Opportunities",
-    description: "Continuous learning and career advancement in cutting-edge technologies"
+    description:
+      "Continuous learning and career advancement in cutting-edge technologies",
   },
   {
     icon: Users,
     title: "Collaborative Culture",
-    description: "Work with talented individuals in a supportive, inclusive environment"
+    description:
+      "Work with talented individuals in a supportive, inclusive environment",
   },
   {
     icon: Heart,
     title: "Work-Life Balance",
-    description: "Flexible schedules and remote work options to support your lifestyle"
+    description:
+      "Flexible schedules and remote work options to support your lifestyle",
   },
   {
     icon: Award,
     title: "Competitive Benefits",
-    description: "Attractive compensation packages and performance-based incentives"
-  }
+    description:
+      "Attractive compensation packages and performance-based incentives",
+  },
 ];
 
 export default function CareersPage() {
   return (
     <>
       <Navigation />
-      
+
       {/* Hero Section */}
-      <section className="pt-24 pb-12 bg-gradient-to-br from-white to-gray-50">
+      <section className="pt-32 pb-12 bg-gradient-to-br from-white to-gray-50">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -60,18 +78,19 @@ export default function CareersPage() {
             variants={staggerContainer}
             className="mx-auto max-w-3xl text-center"
           >
-            <motion.h1 
-              variants={fadeInUp}
+            <motion.h1
+              variants={fadeIn}
               className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
             >
               Join Our <span className="text-primary">Team</span>
             </motion.h1>
-            <motion.p 
-              variants={fadeInUp}
+            <motion.p
+              variants={fadeIn}
               className="mt-6 text-lg leading-8 text-gray-600"
             >
-              Be part of Africa's digital transformation. Help us build innovative 
-              solutions that make a real difference in businesses and communities.
+              Be part of Africa's digital transformation. Help us build
+              innovative solutions that make a real difference in businesses and
+              communities.
             </motion.p>
           </motion.div>
         </div>
@@ -87,17 +106,18 @@ export default function CareersPage() {
             variants={staggerContainer}
             className="mx-auto max-w-2xl text-center"
           >
-            <motion.h2 
-              variants={fadeInUp}
+            <motion.h2
+              variants={fadeIn}
               className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
             >
               Why Work at Aurora?
             </motion.h2>
-            <motion.p 
-              variants={fadeInUp}
+            <motion.p
+              variants={fadeIn}
               className="mt-4 text-lg leading-8 text-gray-600"
             >
-              We're more than just a software company - we're a family building the future
+              We're more than just a software company - we're a family building
+              the future
             </motion.p>
           </motion.div>
 
@@ -109,7 +129,7 @@ export default function CareersPage() {
             className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:grid-cols-2 lg:max-w-none"
           >
             {benefits.map((benefit) => (
-              <motion.div key={benefit.title} variants={fadeInUp}>
+              <motion.div key={benefit.title} variants={fadeIn}>
                 <Card className="h-full hover:shadow-lg transition-shadow">
                   <CardHeader>
                     <div className="flex items-center space-x-3">
@@ -141,14 +161,14 @@ export default function CareersPage() {
             variants={staggerContainer}
             className="mx-auto max-w-2xl text-center"
           >
-            <motion.h2 
-              variants={fadeInUp}
+            <motion.h2
+              variants={fadeIn}
               className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
             >
               Our Values in Action
             </motion.h2>
-            <motion.p 
-              variants={fadeInUp}
+            <motion.p
+              variants={fadeIn}
               className="mt-4 text-lg leading-8 text-gray-600"
             >
               How we live our core values every day at Aurora Software Labs
@@ -166,26 +186,31 @@ export default function CareersPage() {
               {[
                 {
                   value: "Innovation",
-                  description: "We encourage experimentation, embrace new technologies, and support creative problem-solving approaches."
+                  description:
+                    "We encourage experimentation, embrace new technologies, and support creative problem-solving approaches.",
                 },
                 {
                   value: "Reliability",
-                  description: "Our team members can depend on each other to deliver quality work consistently and meet commitments."
+                  description:
+                    "Our team members can depend on each other to deliver quality work consistently and meet commitments.",
                 },
                 {
-                  value: "Collaboration", 
-                  description: "We foster open communication, knowledge sharing, and teamwork across all projects and departments."
+                  value: "Collaboration",
+                  description:
+                    "We foster open communication, knowledge sharing, and teamwork across all projects and departments.",
                 },
                 {
                   value: "Integrity",
-                  description: "We maintain transparency in our processes, honest communication, and ethical practices in all interactions."
+                  description:
+                    "We maintain transparency in our processes, honest communication, and ethical practices in all interactions.",
                 },
                 {
                   value: "Impact",
-                  description: "Every role contributes meaningfully to our mission of empowering African businesses through technology."
-                }
+                  description:
+                    "Every role contributes meaningfully to our mission of empowering African businesses through technology.",
+                },
               ].map((item, index) => (
-                <motion.div key={item.value} variants={fadeInUp}>
+                <motion.div key={item.value} variants={fadeIn}>
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0">
                       <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold">
@@ -193,7 +218,9 @@ export default function CareersPage() {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900">{item.value}</h3>
+                      <h3 className="text-xl font-semibold text-gray-900">
+                        {item.value}
+                      </h3>
                       <p className="mt-2 text-gray-600">{item.description}</p>
                     </div>
                   </div>
@@ -214,17 +241,18 @@ export default function CareersPage() {
             variants={staggerContainer}
             className="mx-auto max-w-2xl text-center"
           >
-            <motion.h2 
-              variants={fadeInUp}
+            <motion.h2
+              variants={fadeIn}
               className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
             >
               Current Opportunities
             </motion.h2>
-            <motion.p 
-              variants={fadeInUp}
+            <motion.p
+              variants={fadeIn}
               className="mt-4 text-lg leading-8 text-gray-600"
             >
-              We're always looking for talented individuals to join our growing team
+              We're always looking for talented individuals to join our growing
+              team
             </motion.p>
           </motion.div>
 
@@ -235,7 +263,7 @@ export default function CareersPage() {
             variants={staggerContainer}
             className="mx-auto mt-16 max-w-3xl"
           >
-            <motion.div variants={fadeInUp}>
+            <motion.div variants={fadeIn}>
               <Card className="text-center">
                 <CardContent className="p-12">
                   <Users className="h-16 w-16 text-primary mx-auto mb-6" />
@@ -243,20 +271,27 @@ export default function CareersPage() {
                     Growing Team, Future Opportunities
                   </h3>
                   <p className="text-lg text-gray-600 mb-8">
-                    While we don't have specific openings at the moment, we're always 
-                    interested in connecting with talented developers, designers, and 
-                    digital strategists who share our passion for African tech innovation.
+                    While we don't have specific openings at the moment, we're
+                    always interested in connecting with talented developers,
+                    designers, and digital strategists who share our passion for
+                    African tech innovation.
                   </p>
                   <div className="space-y-4">
-                    <h4 className="text-lg font-semibold text-gray-900">We're particularly interested in:</h4>
+                    <h4 className="text-lg font-semibold text-gray-900">
+                      We're particularly interested in:
+                    </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
                       <div className="flex items-center space-x-2">
                         <CheckCircle className="h-5 w-5 text-accent flex-shrink-0" />
-                        <span className="text-gray-600">Frontend Developers</span>
+                        <span className="text-gray-600">
+                          Frontend Developers
+                        </span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <CheckCircle className="h-5 w-5 text-accent flex-shrink-0" />
-                        <span className="text-gray-600">Backend Developers</span>
+                        <span className="text-gray-600">
+                          Backend Developers
+                        </span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <CheckCircle className="h-5 w-5 text-accent flex-shrink-0" />
@@ -285,14 +320,14 @@ export default function CareersPage() {
             variants={staggerContainer}
             className="mx-auto max-w-2xl text-center"
           >
-            <motion.h2 
-              variants={fadeInUp}
+            <motion.h2
+              variants={fadeIn}
               className="text-3xl font-bold tracking-tight sm:text-4xl"
             >
               How to Apply
             </motion.h2>
-            <motion.p 
-              variants={fadeInUp}
+            <motion.p
+              variants={fadeIn}
               className="mt-4 text-lg leading-8 text-primary-foreground/80"
             >
               Ready to be part of something amazing? Here's how to get started
@@ -306,13 +341,15 @@ export default function CareersPage() {
             variants={staggerContainer}
             className="mx-auto mt-16 max-w-3xl"
           >
-            <motion.div variants={fadeInUp}>
+            <motion.div variants={fadeIn}>
               <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
                 <div className="text-center">
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent text-accent-foreground font-bold text-xl mx-auto mb-4">
                     1
                   </div>
-                  <h3 className="text-lg font-semibold mb-2">Send Your Portfolio</h3>
+                  <h3 className="text-lg font-semibold mb-2">
+                    Send Your Portfolio
+                  </h3>
                   <p className="text-sm text-primary-foreground/80">
                     Share your best work and tell us about your experience
                   </p>
@@ -348,24 +385,31 @@ export default function CareersPage() {
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
-            variants={fadeInUp}
+            variants={fadeIn}
             className="mx-auto max-w-2xl text-center"
           >
             <h2 className="text-3xl font-bold tracking-tight text-accent-foreground sm:text-4xl">
               Ready to Join Us?
             </h2>
             <p className="mt-6 text-lg leading-8 text-accent-foreground/80">
-              Send us your portfolio and let's start a conversation about how you 
-              can contribute to Aurora Software Labs.
+              Send us your portfolio and let's start a conversation about how
+              you can contribute to Aurora Software Labs.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Button size="lg" variant="secondary" asChild>
-                <Link href={`mailto:${companyInfo.email}?subject=Career Opportunity - Portfolio Submission`}>
+                <Link
+                  href={`mailto:${companyInfo.email}?subject=Career Opportunity - Portfolio Submission`}
+                >
                   Send Your Portfolio
                   <Mail className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" className="border-accent-foreground text-accent-foreground hover:bg-accent-foreground hover:text-accent" asChild>
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-accent-foreground text-accent-foreground hover:bg-accent-foreground hover:text-accent"
+                asChild
+              >
                 <Link href="/contact">
                   Learn More About Us
                   <ArrowRight className="ml-2 h-4 w-4" />

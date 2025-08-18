@@ -64,17 +64,20 @@ src/
 ## 🚀 Getting Started
 
 1. **Clone the repository**:
+
    ```bash
    git clone <repository-url>
    cd aurorasoftwarelabs
    ```
 
 2. **Install dependencies**:
+
    ```bash
    npm install
    ```
 
 3. **Run the development server**:
+
    ```bash
    npm run dev
    ```
@@ -85,17 +88,20 @@ src/
 ## 🏗️ Build and Deploy
 
 ### Development
+
 ```bash
 npm run dev
 ```
 
 ### Production Build
+
 ```bash
 npm run build
 npm start
 ```
 
 ### Deploy to Vercel
+
 This project is optimized for Vercel deployment:
 
 1. Push your code to GitHub
@@ -103,6 +109,7 @@ This project is optimized for Vercel deployment:
 3. Vercel will automatically build and deploy your site
 
 Or use the Vercel CLI:
+
 ```bash
 npm i -g vercel
 vercel
@@ -111,6 +118,7 @@ vercel
 ## 🔧 Configuration
 
 ### Environment Variables
+
 Create a `.env.local` file for any environment-specific variables:
 
 ```env
@@ -119,7 +127,9 @@ NEXT_PUBLIC_SITE_URL=https://yourdomain.com
 ```
 
 ### Contact Form
+
 The contact form currently uses a mailto link as a fallback. For production, consider integrating with:
+
 - Formspree
 - Netlify Forms
 - Custom API endpoint

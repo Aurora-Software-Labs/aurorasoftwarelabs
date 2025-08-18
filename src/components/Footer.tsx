@@ -12,8 +12,8 @@ export default function Footer() {
                 Aurora <span className="text-accent">Software Labs</span>
               </h3>
               <p className="mt-4 text-sm leading-6 text-primary-foreground/80">
-                Crafting innovative, reliable, and scalable digital solutions that empower 
-                businesses and communities across Africa.
+                Crafting innovative, reliable, and scalable digital solutions
+                that empower businesses and communities across Africa.
               </p>
             </div>
             <div className="flex space-x-6">
@@ -25,22 +25,34 @@ export default function Footer() {
               <h3 className="text-sm font-semibold leading-6">Company</h3>
               <ul role="list" className="mt-6 space-y-4">
                 <li>
-                  <Link href="/about" className="text-sm leading-6 text-primary-foreground/80 hover:text-primary-foreground">
+                  <Link
+                    href="/about"
+                    className="text-sm leading-6 text-primary-foreground/80 hover:text-primary-foreground"
+                  >
                     About
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services" className="text-sm leading-6 text-primary-foreground/80 hover:text-primary-foreground">
+                  <Link
+                    href="/services"
+                    className="text-sm leading-6 text-primary-foreground/80 hover:text-primary-foreground"
+                  >
                     Services
                   </Link>
                 </li>
                 <li>
-                  <Link href="/portfolio" className="text-sm leading-6 text-primary-foreground/80 hover:text-primary-foreground">
+                  <Link
+                    href="/portfolio"
+                    className="text-sm leading-6 text-primary-foreground/80 hover:text-primary-foreground"
+                  >
                     Portfolio
                   </Link>
                 </li>
                 <li>
-                  <Link href="/careers" className="text-sm leading-6 text-primary-foreground/80 hover:text-primary-foreground">
+                  <Link
+                    href="/careers"
+                    className="text-sm leading-6 text-primary-foreground/80 hover:text-primary-foreground"
+                  >
                     Careers
                   </Link>
                 </li>
@@ -52,7 +64,7 @@ export default function Footer() {
                 <li className="flex items-center space-x-2">
                   <Mail className="h-4 w-4" />
                   <span className="text-sm text-primary-foreground/80">
-                    emmanuelcobbinah707@gmail.com
+                    aurorasoftwarelabs@gmail.com
                   </span>
                 </li>
                 <li className="flex items-center space-x-2">
