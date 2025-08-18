@@ -407,7 +407,7 @@ export default function CareersPage() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-accent-foreground text-accent-foreground hover:bg-accent-foreground hover:text-accent"
+                className="border-accent-foreground text-primary hover:bg-accent-foreground hover:text-accent"
                 asChild
               >
                 <Link href="/contact">

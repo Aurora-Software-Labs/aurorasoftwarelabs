@@ -14,7 +14,7 @@ export const services = [
     id: "web-development",
     title: "Web Development",
     description:
-      "Custom web applications built with modern technologies like React, Next.js, and Node.js. From simple websites to complex web platforms.",
+      "CustoFm web applications built with modern technologies like React, Next.js, and Node.js. From simple websites to complex web platforms.",
     features: [
       "Responsive Design",
       "Modern Frameworks",
@@ -74,7 +74,7 @@ export const projects = [
 export const testimonials = [
   {
     id: 1,
-    name: "Alberta Larbi",
+    name: "Alberta Cobbinah",
     company: "Laropa Kioki",
     role: "Founder",
     content:

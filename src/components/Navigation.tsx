@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -19,6 +20,7 @@ const navigation = [
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   // Close mobile menu when resizing to desktop
   useEffect(() => {
@@ -50,7 +52,7 @@ export default function Navigation() {
           <div className="flex lg:flex-1">
             <Link
               href="/"
-              className="flex items-center"
+              className="flex items-center transition-transform duration-200 ease-out hover:scale-105"
               onClick={() => setMobileMenuOpen(false)}
             >
               <Image
@@ -69,7 +71,7 @@ export default function Navigation() {
             <Button
               variant="ghost"
               size="icon"
-              className="p-2"
+              className="p-2 hover:bg-primary/10 hover:scale-110 transition-all duration-200"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Open main menu"
             >
@@ -79,15 +81,29 @@ export default function Navigation() {
 
           {/* Desktop nav */}
           <div className="hidden lg:flex lg:gap-x-8 xl:gap-x-12">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-sm font-semibold text-gray-900 hover:text-primary transition-colors"
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navigation.map((item) => {
+              const isActive = pathname === item.href;
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`relative text-sm font-semibold transition-all duration-300 ease-out group ${
+                    isActive
+                      ? "text-primary"
+                      : "text-gray-900 hover:text-primary"
+                  }`}
+                >
+                  {item.name}
+                  <span
+                    className={`absolute inset-x-0 -bottom-1 h-0.5 bg-primary transition-transform duration-300 ease-out origin-left ${
+                      isActive
+                        ? "scale-x-100"
+                        : "scale-x-0 group-hover:scale-x-100"
+                    }`}
+                  ></span>
+                </Link>
+              );
+            })}
           </div>
 
           {/* Desktop CTA */}
@@ -143,22 +159,33 @@ export default function Navigation() {
 
               {/* Nav links */}
               <div className="flex flex-col gap-4">
-                {navigation.map((item, index) => (
-                  <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                  >
-                    <Link
-                      href={item.href}
-                      className="block text-base font-semibold text-gray-900 hover:text-primary transition-colors"
-                      onClick={() => setMobileMenuOpen(false)}
+                {navigation.map((item, index) => {
+                  const isActive = pathname === item.href;
+                  return (
+                    <motion.div
+                      key={item.name}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05 }}
+                      className="group"
                     >
-                      {item.name}
-                    </Link>
-                  </motion.div>
-                ))}
+                      <Link
+                        href={item.href}
+                        className={`block text-base font-semibold transition-all duration-200 ease-out relative ${
+                          isActive
+                            ? "text-primary translate-x-2"
+                            : "text-gray-900 hover:text-primary hover:translate-x-2"
+                        }`}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {item.name}
+                        {isActive && (
+                          <span className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-primary rounded-full"></span>
+                        )}
+                      </Link>
+                    </motion.div>
+                  );
+                })}
               </div>
 
               {/* CTA at bottom */}

@@ -341,7 +341,7 @@ export default function PortfolioPage() {
                     significantly increased our sales and customer engagement."
                   </p>
                   <div className="border-t pt-4">
-                    <p className="font-semibold">Sarah Johnson</p>
+                    <p className="font-semibold">Alberta Cobbinah</p>
                     <p className="text-sm text-gray-500">CEO, Laropa Kioki</p>
                   </div>
                 </CardContent>
@@ -375,7 +375,7 @@ export default function PortfolioPage() {
                     delivered a solution that exceeded our expectations."
                   </p>
                   <div className="border-t pt-4">
-                    <p className="font-semibold">David Osei</p>
+                    <p className="font-semibold">Grace Domfeh</p>
                     <p className="text-sm text-gray-500">
                       Founder, Lolyraced Ventures
                     </p>
@@ -414,7 +414,7 @@ export default function PortfolioPage() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-accent-foreground text-accent-foreground hover:bg-accent-foreground hover:text-accent"
+                className="border-accent-foreground text-primary hover:bg-accent-foreground hover:text-accent"
                 asChild
               >
                 <Link href="/services">View Our Services</Link>

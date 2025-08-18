@@ -367,7 +367,7 @@ export default function ServicesPage() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                className="w-full sm:w-auto border-accent-foreground text-primary hover:bg-accent-foreground hover:text-accent"
                 asChild
               >
                 <Link href="/portfolio">View Our Work</Link>
