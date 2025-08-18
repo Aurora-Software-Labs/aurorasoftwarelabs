@@ -14,7 +14,7 @@ export const services = [
     id: "web-development",
     title: "Web Development",
     description:
-      "CustoFm web applications built with modern technologies like React, Next.js, and Node.js. From simple websites to complex web platforms.",
+      "Custom web applications built with modern technologies like React, Next.js, and Node.js. From simple websites to complex web platforms.",
     features: [
       "Responsive Design",
       "Modern Frameworks",
