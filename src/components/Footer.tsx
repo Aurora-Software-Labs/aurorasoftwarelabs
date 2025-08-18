@@ -20,7 +20,7 @@ export default function Footer() {
               {/* Social media icons would go here */}
             </div>
           </div>
-          <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+          <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 xl:col-span-2 xl:mt-0">
             <div>
               <h3 className="text-sm font-semibold leading-6">Company</h3>
               <ul role="list" className="mt-6 space-y-4">
@@ -58,12 +58,12 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-            <div>
+            <div className="overflow-hidden">
               <h3 className="text-sm font-semibold leading-6">Contact</h3>
               <ul role="list" className="mt-6 space-y-4">
                 <li className="flex items-center space-x-2">
-                  <Mail className="h-4 w-4" />
-                  <span className="text-sm text-primary-foreground/80">
+                  <Mail className="h-4 w-4 flex-shrink-0" />
+                  <span className="text-sm text-primary-foreground/80 break-all sm:break-normal">
                     aurorasoftwarelabs@gmail.com
                   </span>
                 </li>
