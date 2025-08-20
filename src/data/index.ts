@@ -85,7 +85,7 @@ export const testimonials = [
     id: 2,
     name: "Michael Yeng",
     company: "Student Campaign",
-    role: "UGSRC Vice President",
+    role: "UGSRC Vice Presidential Candidate",
     content:
       "The team delivered a professional campaign website that perfectly captured our message. The site was fast, responsive, and helped us connect with voters effectively.",
     rating: 5,
