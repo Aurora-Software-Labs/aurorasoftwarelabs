@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import axios from "axios";
+import apiClient from "@/lib/axios";
 import {
   Mail,
   MapPin,
@@ -67,30 +69,31 @@ export default function ContactPage() {
     setIsSubmitting(true);
 
     try {
-      // Simulate form submission - in production, you'd send to your backend
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-
-      // For now, we'll create a mailto link as fallback
-      const mailtoLink = `mailto:${
-        companyInfo.email
-      }?subject=${encodeURIComponent(
-        formData.subject || "Website Contact"
-      )}&body=${encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\n\nMessage:\n${formData.message}`
-      )}`;
-
-      window.location.href = mailtoLink;
-      setSubmitStatus("success");
-
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        subject: "",
-        message: "",
+      const response = await apiClient.post("/api/contact", {
+        ...formData,
+        formType: "contact",
       });
+
+      if (response.data.success) {
+        setSubmitStatus("success");
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        throw new Error(response.data.error || "Failed to send message");
+      }
     } catch (error) {
+      console.error("Form submission error:", error);
+      // Handle Axios error response
+      if (axios.isAxiosError(error)) {
+        console.error("Response data:", error.response?.data);
+        console.error("Response status:", error.response?.status);
+      }
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);

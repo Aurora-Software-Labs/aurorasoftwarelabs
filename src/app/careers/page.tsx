@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import CareerForm from "@/components/CareerForm";
 import { companyInfo } from "@/data";
 
 const fadeIn = {
@@ -378,44 +379,32 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* Contact for Careers */}
-      <section className="py-16 bg-accent">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      {/* Career Application Form */}
+      <section className="py-16 bg-gray-50">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <motion.div
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
             variants={fadeIn}
-            className="mx-auto max-w-2xl text-center"
+            className="mx-auto max-w-2xl text-center mb-12"
           >
-            <h2 className="text-3xl font-bold tracking-tight text-accent-foreground sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
               Ready to Join Us?
             </h2>
-            <p className="mt-6 text-lg leading-8 text-accent-foreground/80">
-              Send us your portfolio and let's start a conversation about how
-              you can contribute to Aurora Software Labs.
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              Submit your application below and let's start a conversation about
+              how you can contribute to Aurora Software Labs.
             </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Button size="lg" variant="secondary" asChild>
-                <Link
-                  href={`mailto:${companyInfo.email}?subject=Career Opportunity - Portfolio Submission`}
-                >
-                  Send Your Portfolio
-                  <Mail className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-accent-foreground text-primary hover:bg-accent-foreground hover:text-accent"
-                asChild
-              >
-                <Link href="/contact">
-                  Learn More About Us
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <CareerForm />
           </motion.div>
         </div>
       </section>
