@@ -69,9 +69,9 @@ export default function AboutPage() {
               variants={fadeInUp}
               className="mt-6 text-lg leading-8 text-gray-600"
             >
-              We are the northern lights for Africa's tech frontier—guiding,
-              inspiring, and illuminating the path to digital innovation across
-              the continent.
+              We are the <span className="text-primary">northern lights</span>{" "}
+              for Africa's tech frontier—guiding, inspiring, and illuminating
+              the path to digital innovation across the continent.
             </motion.p>
           </motion.div>
         </div>

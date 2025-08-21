@@ -49,7 +49,8 @@ export default function HomePage() {
               variants={fadeIn}
               className="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl"
             >
-              The Northern Lights for Africa's Tech Frontier
+              The <span className="text-primary">Northern Lights</span> for
+              Africa's Tech Frontier
             </motion.h1>
             <motion.p
               variants={fadeIn}
