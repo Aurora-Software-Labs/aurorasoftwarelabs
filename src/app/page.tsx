@@ -49,9 +49,7 @@ export default function HomePage() {
               variants={fadeIn}
               className="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl"
             >
-              Crafting Digital{" "}
-              <span className="text-primary block sm:inline">Excellence</span>{" "}
-              <span className="text-accent block sm:inline">for Africa</span>
+              The Northern Lights for Africa's Tech Frontier
             </motion.h1>
             <motion.p
               variants={fadeIn}

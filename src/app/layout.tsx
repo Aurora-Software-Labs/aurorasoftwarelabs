@@ -9,9 +9,10 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Aurora Software Labs | Digital Solutions & Web Development",
+  title:
+    "Aurora Software Labs | The Northern Lights for Africa's Tech Frontier",
   description:
-    "Aurora Software Labs is a Ghana-based software development agency crafting innovative, reliable, and scalable digital solutions for businesses and communities.",
+    "Aurora Software Labs is the northern lights for Africa's tech frontier—guiding, inspiring, and illuminating the path to digital innovation across the continent.",
   keywords:
     "software development, web development, Ghana, digital solutions, software consulting, e-commerce, web design",
   authors: [{ name: "Aurora Software Labs" }],
@@ -21,9 +22,10 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
   },
   openGraph: {
-    title: "Aurora Software Labs | Digital Solutions & Web Development",
+    title:
+      "Aurora Software Labs | The Northern Lights for Africa's Tech Frontier",
     description:
-      "Crafting innovative, reliable, and scalable digital solutions that empower businesses and communities across Africa.",
+      "Aurora Software Labs is the northern lights for Africa's tech frontier—guiding, inspiring, and illuminating the path to digital innovation across the continent.",
     url: "https://aurorasoftwarelabs.com",
     siteName: "Aurora Software Labs",
     type: "website",
@@ -31,9 +33,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aurora Software Labs | Digital Solutions & Web Development",
+    title:
+      "Aurora Software Labs | The Northern Lights for Africa's Tech Frontier",
     description:
-      "Crafting innovative, reliable, and scalable digital solutions that empower businesses and communities across Africa.",
+      "Aurora Software Labs is the northern lights for Africa's tech frontier—guiding, inspiring, and illuminating the path to digital innovation across the continent.",
   },
 };
 

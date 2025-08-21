@@ -1,9 +1,9 @@
 export const companyInfo = {
   name: "Aurora Software Labs",
   mission:
-    "To craft innovative, reliable, and scalable digital solutions that empower businesses and communities.",
+    "To be the northern lights guiding Africa's tech frontier—illuminating the path for innovation, opportunity, and digital transformation.",
   vision:
-    "To become Africa's leading hub of software excellence, blending creativity with cutting-edge technology to solve real-world problems.",
+    "To inspire and empower Africa's next generation of innovators by shining a light on the continent's digital future, one solution at a time.",
   values: ["Innovation", "Reliability", "Collaboration", "Integrity", "Impact"],
   email: "aurorasoftwarelabs@gmail.com",
   location: "Ghana",
