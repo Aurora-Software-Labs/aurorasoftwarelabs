@@ -37,7 +37,7 @@ export default function HomePage() {
       <Navigation />
 
       {/* Hero Section - Centered viewport */}
-      <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white to-gray-50 pt-16">
+      <section className="min-h-[calc(100vh-4rem)] md:min-h-screen flex items-center justify-center bg-gradient-to-br from-white to-gray-50 pt-16">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -49,15 +49,17 @@ export default function HomePage() {
               variants={fadeIn}
               className="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl"
             >
-              The <span className="text-primary">Northern Lights</span> for
-              Africa's Tech Frontier
+              Crafting Digital{" "}
+              <span className="text-primary block sm:inline">Excellence</span>{" "}
+              <span className="text-accent block sm:inline">for Africa</span>
             </motion.h1>
             <motion.p
               variants={fadeIn}
               className="mt-6 text-base leading-7 text-gray-600 sm:text-lg sm:leading-8 max-w-2xl mx-auto"
             >
-              {companyInfo.mission} We blend creativity with cutting-edge
-              technology to solve real-world problems.
+              Guiding Africa’s tech frontier like the Northern
+              Lights—illuminating innovation, unlocking opportunity, and driving
+              digital transformation.
             </motion.p>
             <motion.div
               variants={fadeIn}
