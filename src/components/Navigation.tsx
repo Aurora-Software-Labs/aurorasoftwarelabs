@@ -162,13 +162,15 @@ export default function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "tween", duration: 0.3 }}
-              className="fixed inset-y-0 right-0 z-50 w-4/5 max-w-sm bg-white shadow-xl p-6 flex flex-col"
+              className={`fixed inset-y-0 right-0 z-50 w-4/5 max-w-sm shadow-xl p-6 flex flex-col ${
+                theme === "dark" ? "bg-gray-900" : "bg-white"
+              }`}
             >
               {/* Header with logo & close button */}
               <div className="flex items-center justify-between mb-6">
                 <Link href="/" onClick={() => setMobileMenuOpen(false)}>
                   <Image
-                    src={auroraLogoLight}
+                    src={theme === "dark" ? auroraLogoDark : auroraLogoLight}
                     alt="Aurora Software Labs"
                     width={120}
                     height={40}
@@ -180,6 +182,9 @@ export default function Navigation() {
                   size="icon"
                   onClick={() => setMobileMenuOpen(false)}
                   aria-label="Close menu"
+                  className={`${
+                    theme === "dark" ? "text-white hover:bg-gray-800" : "text-gray-900 hover:bg-gray-100"
+                  }`}
                 >
                   <X className="h-6 w-6" />
                 </Button>
@@ -201,14 +206,16 @@ export default function Navigation() {
                         href={item.href}
                         className={`block text-base font-semibold transition-all duration-200 ease-out relative ${
                           isActive
-                            ? "text-primary translate-x-2"
+                            ? "text-[#67c970] translate-x-2"
+                            : theme === "dark"
+                            ? "text-white hover:text-primary hover:translate-x-2"
                             : "text-gray-900 hover:text-primary hover:translate-x-2"
                         }`}
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         {item.name}
                         {isActive && (
-                          <span className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-primary rounded-full"></span>
+                          <span className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-[#67c970] rounded-full"></span>
                         )}
                       </Link>
                     </motion.div>
