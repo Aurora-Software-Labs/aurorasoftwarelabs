@@ -183,7 +183,9 @@ export default function Navigation() {
                   onClick={() => setMobileMenuOpen(false)}
                   aria-label="Close menu"
                   className={`${
-                    theme === "dark" ? "text-white hover:bg-gray-800" : "text-gray-900 hover:bg-gray-100"
+                    theme === "dark"
+                      ? "text-white hover:bg-gray-800"
+                      : "text-gray-900 hover:bg-gray-100"
                   }`}
                 >
                   <X className="h-6 w-6" />
