@@ -413,11 +413,7 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section
-        className={`py-16 lg:py-20 ${
-          theme === "dark" ? "bg-gray-800" : "bg-black"
-        } text-white`}
-      >
+      <section className="py-16 lg:py-20 bg-primary text-primary-foreground">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -434,7 +430,7 @@ export default function HomePage() {
             </motion.h2>
             <motion.p
               variants={fadeIn}
-              className="mt-4 text-base leading-7 text-white/80 sm:text-lg sm:leading-8"
+              className="mt-4 text-base leading-7 text-primary-foreground/80 sm:text-lg sm:leading-8"
             >
               Don't just take our word for it
             </motion.p>
@@ -449,11 +445,7 @@ export default function HomePage() {
           >
             {testimonials.map((testimonial) => (
               <motion.div key={testimonial.id} variants={fadeIn}>
-                <Card
-                  className={`${
-                    theme === "dark" ? "bg-gray-900" : "bg-primary-foreground"
-                  } text-primary h-full`}
-                >
+                <Card className="bg-primary-foreground text-primary h-full">
                   <CardContent className="p-4 sm:p-6">
                     <div className="flex items-center mb-4">
                       {[...Array(testimonial.rating)].map((_, i) => (
@@ -492,18 +484,10 @@ export default function HomePage() {
             variants={fadeIn}
             className="mx-auto max-w-2xl text-center"
           >
-            <h2
-              className={`text-2xl font-bold tracking-tight ${
-                theme === "dark" ? "text-gray-900" : "text-black"
-              } sm:text-3xl lg:text-4xl`}
-            >
+            <h2 className="text-2xl font-bold tracking-tight text-[#67c970]-foreground sm:text-3xl lg:text-4xl">
               Ready to Start Your Project?
             </h2>
-            <p
-              className={`mt-6 text-base leading-7 ${
-                theme === "dark" ? "text-gray-900/80" : "text-black/80"
-              } sm:text-lg sm:leading-8`}
-            >
+            <p className="mt-6 text-base leading-7 text-[#67c970]-foreground/80 sm:text-lg sm:leading-8">
               Let's discuss how we can bring your digital vision to life. Get in
               touch for a free consultation.
             </p>
@@ -520,10 +504,10 @@ export default function HomePage() {
                 </Link>
               </Button>
               <Button
-                variant="secondary"
+                variant="outline"
                 size="lg"
                 asChild
-                className={`w-full sm:w-auto border-accent-foreground text-black hover:bg-white hover:text-[#67c970]`}
+                className="w-full sm:w-auto border-accent-foreground text-dark hover:bg-[#67c970]-foreground hover:text-[#67c970]"
               >
                 <Link href="/about">Learn More About Us</Link>
               </Button>

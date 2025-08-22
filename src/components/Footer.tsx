@@ -1,10 +1,16 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { useTheme } from "@/contexts/ThemeContext";
 
 export default function Footer() {
+  const { theme } = useTheme();
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer
+      className={`${theme === "dark" ? "bg-gray-900" : "bg-black"} text-white`}
+    >
       <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
@@ -16,7 +22,7 @@ export default function Footer() {
                 height={60}
                 className="h-12 w-auto"
               />
-              <p className="mt-4 text-sm leading-6 text-primary-foreground/80">
+              <p className="mt-4 text-sm leading-6 text-white/80">
                 Crafting innovative, reliable, and scalable digital solutions
                 that empower businesses and communities across Africa.
               </p>
@@ -32,7 +38,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/about"
-                    className="text-sm leading-6 text-primary-foreground/80 hover:text-primary-foreground"
+                    className="text-sm leading-6 text-white/80 hover:text-white"
                   >
                     About
                   </Link>
@@ -40,7 +46,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/services"
-                    className="text-sm leading-6 text-primary-foreground/80 hover:text-primary-foreground"
+                    className="text-sm leading-6 text-white/80 hover:text-white"
                   >
                     Services
                   </Link>
@@ -48,7 +54,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/portfolio"
-                    className="text-sm leading-6 text-primary-foreground/80 hover:text-primary-foreground"
+                    className="text-sm leading-6 text-white/80 hover:text-white"
                   >
                     Portfolio
                   </Link>
@@ -56,7 +62,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/careers"
-                    className="text-sm leading-6 text-primary-foreground/80 hover:text-primary-foreground"
+                    className="text-sm leading-6 text-white/80 hover:text-white"
                   >
                     Careers
                   </Link>
@@ -68,19 +74,17 @@ export default function Footer() {
               <ul role="list" className="mt-6 space-y-4">
                 <li className="flex items-center space-x-2">
                   <Mail className="h-4 w-4 flex-shrink-0" />
-                  <span className="text-sm text-primary-foreground/80 break-all sm:break-normal">
+                  <span className="text-sm text-white/80 break-all sm:break-normal">
                     aurorasoftwarelabs@gmail.com
                   </span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <MapPin className="h-4 w-4" />
-                  <span className="text-sm text-primary-foreground/80">
-                    Ghana
-                  </span>
+                  <span className="text-sm text-white/80">Ghana</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <Phone className="h-4 w-4" />
-                  <span className="text-sm text-primary-foreground/80">
+                  <span className="text-sm text-white/80">
                     +233 50 048 6113
                   </span>
                 </li>
@@ -88,7 +92,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-16 border-t border-primary-foreground/20 pt-8">
+        <div className="mt-16 border-t border-white/20 pt-8">
           <div className="flex flex-col items-center space-y-4">
             <Image
               src="/auroralogodark.png"
@@ -97,7 +101,7 @@ export default function Footer() {
               height={45}
               className="h-17 w-auto opacity-80"
             />
-            <p className="text-xs leading-5 text-primary-foreground/60 text-center">
+            <p className="text-xs leading-5 text-white/60 text-center">
               &copy; 2025 Aurora Software Labs. All rights reserved.
             </p>
           </div>

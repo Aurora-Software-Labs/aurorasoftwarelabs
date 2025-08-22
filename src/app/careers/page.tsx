@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { useTheme } from "@/contexts/ThemeContext";
 import CareerForm from "@/components/CareerForm";
 import { companyInfo } from "@/data";
 
@@ -66,12 +67,20 @@ const benefits = [
 ];
 
 export default function CareersPage() {
+  const { theme } = useTheme();
+
   return (
     <>
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-12 bg-gradient-to-br from-white to-gray-50">
+      <section
+        className={`pt-32 pb-12 ${
+          theme === "dark"
+            ? "bg-gray-900"
+            : "bg-gradient-to-br from-white to-gray-50"
+        }`}
+      >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -81,13 +90,17 @@ export default function CareersPage() {
           >
             <motion.h1
               variants={fadeIn}
-              className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+              className={`text-4xl font-bold tracking-tight ${
+                theme === "dark" ? "text-white" : "text-gray-900"
+              } sm:text-6xl`}
             >
               Join Our <span className="text-primary">Team</span>
             </motion.h1>
             <motion.p
               variants={fadeIn}
-              className="mt-6 text-lg leading-8 text-gray-600"
+              className={`mt-6 text-lg leading-8 ${
+                theme === "dark" ? "text-gray-300" : "text-gray-600"
+              }`}
             >
               Be part of Africa's digital transformation. Help us build
               innovative solutions that make a real difference in businesses and
@@ -98,7 +111,9 @@ export default function CareersPage() {
       </section>
 
       {/* Company Culture */}
-      <section className="py-16">
+      <section
+        className={`py-16 ${theme === "dark" ? "bg-gray-900" : "bg-white"}`}
+      >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -109,13 +124,17 @@ export default function CareersPage() {
           >
             <motion.h2
               variants={fadeIn}
-              className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+              className={`text-3xl font-bold tracking-tight ${
+                theme === "dark" ? "text-white" : "text-gray-900"
+              } sm:text-4xl`}
             >
               Why Work at Aurora?
             </motion.h2>
             <motion.p
               variants={fadeIn}
-              className="mt-4 text-lg leading-8 text-gray-600"
+              className={`mt-4 text-lg leading-8 ${
+                theme === "dark" ? "text-gray-300" : "text-gray-600"
+              }`}
             >
               We're more than just a software company - we're a family building
               the future
@@ -131,7 +150,11 @@ export default function CareersPage() {
           >
             {benefits.map((benefit) => (
               <motion.div key={benefit.title} variants={fadeIn}>
-                <Card className="h-full hover:shadow-lg transition-shadow">
+                <Card
+                  className={`h-full hover:shadow-lg transition-shadow ${
+                    theme === "dark" ? "bg-gray-800" : "bg-white"
+                  }`}
+                >
                   <CardHeader>
                     <div className="flex items-center space-x-3">
                       <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
@@ -153,7 +176,9 @@ export default function CareersPage() {
       </section>
 
       {/* Our Values in Practice */}
-      <section className="py-16 bg-gray-50">
+      <section
+        className={`py-16 ${theme === "dark" ? "bg-gray-800" : "bg-gray-50"}`}
+      >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -164,13 +189,17 @@ export default function CareersPage() {
           >
             <motion.h2
               variants={fadeIn}
-              className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+              className={`text-3xl font-bold tracking-tight ${
+                theme === "dark" ? "text-white" : "text-gray-900"
+              } sm:text-4xl`}
             >
               Our Values in Action
             </motion.h2>
             <motion.p
               variants={fadeIn}
-              className="mt-4 text-lg leading-8 text-gray-600"
+              className={`mt-4 text-lg leading-8 ${
+                theme === "dark" ? "text-gray-300" : "text-gray-600"
+              }`}
             >
               How we live our core values every day at Aurora Software Labs
             </motion.p>
@@ -219,10 +248,20 @@ export default function CareersPage() {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900">
+                      <h3
+                        className={`text-xl font-semibold ${
+                          theme === "dark" ? "text-white" : "text-gray-900"
+                        }`}
+                      >
                         {item.value}
                       </h3>
-                      <p className="mt-2 text-gray-600">{item.description}</p>
+                      <p
+                        className={`mt-2 ${
+                          theme === "dark" ? "text-gray-300" : "text-gray-600"
+                        }`}
+                      >
+                        {item.description}
+                      </p>
                     </div>
                   </div>
                 </motion.div>
@@ -233,7 +272,9 @@ export default function CareersPage() {
       </section>
 
       {/* Current Opportunities */}
-      <section className="py-16">
+      <section
+        className={`py-16 ${theme === "dark" ? "bg-gray-900" : "bg-white"}`}
+      >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -244,13 +285,17 @@ export default function CareersPage() {
           >
             <motion.h2
               variants={fadeIn}
-              className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+              className={`text-3xl font-bold tracking-tight ${
+                theme === "dark" ? "text-white" : "text-gray-900"
+              } sm:text-4xl`}
             >
               Current Opportunities
             </motion.h2>
             <motion.p
               variants={fadeIn}
-              className="mt-4 text-lg leading-8 text-gray-600"
+              className={`mt-4 text-lg leading-8 ${
+                theme === "dark" ? "text-gray-300" : "text-gray-600"
+              }`}
             >
               We're always looking for talented individuals to join our growing
               team
@@ -265,42 +310,78 @@ export default function CareersPage() {
             className="mx-auto mt-16 max-w-3xl"
           >
             <motion.div variants={fadeIn}>
-              <Card className="text-center">
+              <Card
+                className={`text-center ${
+                  theme === "dark" ? "bg-gray-800" : "bg-white"
+                }`}
+              >
                 <CardContent className="p-12">
                   <Users className="h-16 w-16 text-primary mx-auto mb-6" />
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  <h3
+                    className={`text-2xl font-bold mb-4 ${
+                      theme === "dark" ? "text-white" : "text-gray-900"
+                    }`}
+                  >
                     Growing Team, Future Opportunities
                   </h3>
-                  <p className="text-lg text-gray-600 mb-8">
+                  <p
+                    className={`text-lg mb-8 ${
+                      theme === "dark" ? "text-gray-300" : "text-gray-600"
+                    }`}
+                  >
                     While we don't have specific openings at the moment, we're
                     always interested in connecting with talented developers,
                     designers, and digital strategists who share our passion for
                     African tech innovation.
                   </p>
                   <div className="space-y-4">
-                    <h4 className="text-lg font-semibold text-gray-900">
+                    <h4
+                      className={`text-lg font-semibold ${
+                        theme === "dark" ? "text-white" : "text-gray-900"
+                      }`}
+                    >
                       We're particularly interested in:
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
                       <div className="flex items-center space-x-2">
-                        <CheckCircle className="h-5 w-5 text-accent flex-shrink-0" />
-                        <span className="text-gray-600">
+                        <CheckCircle className="h-5 w-5 text-[#67c970] flex-shrink-0" />
+                        <span
+                          className={`${
+                            theme === "dark" ? "text-gray-300" : "text-gray-600"
+                          }`}
+                        >
                           Frontend Developers
                         </span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <CheckCircle className="h-5 w-5 text-accent flex-shrink-0" />
-                        <span className="text-gray-600">
+                        <CheckCircle className="h-5 w-5 text-[#67c970] flex-shrink-0" />
+                        <span
+                          className={`${
+                            theme === "dark" ? "text-gray-300" : "text-gray-600"
+                          }`}
+                        >
                           Backend Developers
                         </span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <CheckCircle className="h-5 w-5 text-accent flex-shrink-0" />
-                        <span className="text-gray-600">UI/UX Designers</span>
+                        <CheckCircle className="h-5 w-5 text-[#67c970] flex-shrink-0" />
+                        <span
+                          className={`${
+                            theme === "dark" ? "text-gray-300" : "text-gray-600"
+                          }`}
+                        >
+                          UI/UX Designers
+                        </span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <CheckCircle className="h-5 w-5 text-accent flex-shrink-0" />
-                        <span className="text-gray-600">Project Managers</span>
+                        <CheckCircle className="h-5 w-5 text-[#67c970] flex-shrink-0" />
+                        <span
+                          className={`${
+                            theme === "dark" ? "text-gray-300" : "text-gray-600"
+                          }`}
+                        >
+                          Project Managers
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -312,7 +393,13 @@ export default function CareersPage() {
       </section>
 
       {/* Application Process */}
-      <section className="py-16 bg-primary text-primary-foreground">
+      <section
+        className={`py-16 ${
+          theme === "dark"
+            ? "bg-gray-900 text-white"
+            : "bg-primary text-primary-foreground"
+        }`}
+      >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -329,7 +416,11 @@ export default function CareersPage() {
             </motion.h2>
             <motion.p
               variants={fadeIn}
-              className="mt-4 text-lg leading-8 text-primary-foreground/80"
+              className={`mt-4 text-lg leading-8 ${
+                theme === "dark"
+                  ? "text-gray-300"
+                  : "text-primary-foreground/80"
+              }`}
             >
               Ready to be part of something amazing? Here's how to get started
             </motion.p>
@@ -345,31 +436,49 @@ export default function CareersPage() {
             <motion.div variants={fadeIn}>
               <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
                 <div className="text-center">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent text-accent-foreground font-bold text-xl mx-auto mb-4">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#67c970] text-[#67c970]-foreground font-bold text-xl mx-auto mb-4">
                     1
                   </div>
                   <h3 className="text-lg font-semibold mb-2">
                     Send Your Portfolio
                   </h3>
-                  <p className="text-sm text-primary-foreground/80">
+                  <p
+                    className={`text-sm ${
+                      theme === "dark"
+                        ? "text-gray-300"
+                        : "text-primary-foreground/80"
+                    }`}
+                  >
                     Share your best work and tell us about your experience
                   </p>
                 </div>
                 <div className="text-center">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent text-accent-foreground font-bold text-xl mx-auto mb-4">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#67c970] text-[#67c970]-foreground font-bold text-xl mx-auto mb-4">
                     2
                   </div>
                   <h3 className="text-lg font-semibold mb-2">Initial Chat</h3>
-                  <p className="text-sm text-primary-foreground/80">
+                  <p
+                    className={`text-sm ${
+                      theme === "dark"
+                        ? "text-gray-300"
+                        : "text-primary-foreground/80"
+                    }`}
+                  >
                     Let's get to know each other and discuss opportunities
                   </p>
                 </div>
                 <div className="text-center">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent text-accent-foreground font-bold text-xl mx-auto mb-4">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#67c970] text-[#67c970]-foreground font-bold text-xl mx-auto mb-4">
                     3
                   </div>
                   <h3 className="text-lg font-semibold mb-2">Join the Team</h3>
-                  <p className="text-sm text-primary-foreground/80">
+                  <p
+                    className={`text-sm ${
+                      theme === "dark"
+                        ? "text-gray-300"
+                        : "text-primary-foreground/80"
+                    }`}
+                  >
                     Start building amazing solutions together
                   </p>
                 </div>
@@ -380,7 +489,9 @@ export default function CareersPage() {
       </section>
 
       {/* Career Application Form */}
-      <section className="py-16 bg-gray-50">
+      <section
+        className={`py-16 ${theme === "dark" ? "bg-gray-800" : "bg-gray-50"}`}
+      >
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -389,10 +500,18 @@ export default function CareersPage() {
             variants={fadeIn}
             className="mx-auto max-w-2xl text-center mb-12"
           >
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2
+              className={`text-3xl font-bold tracking-tight ${
+                theme === "dark" ? "text-white" : "text-gray-900"
+              } sm:text-4xl`}
+            >
               Ready to Join Us?
             </h2>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p
+              className={`mt-6 text-lg leading-8 ${
+                theme === "dark" ? "text-gray-300" : "text-gray-600"
+              }`}
+            >
               Submit your application below and let's start a conversation about
               how you can contribute to Aurora Software Labs.
             </p>

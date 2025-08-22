@@ -6,8 +6,11 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { useTheme } from "@/contexts/ThemeContext";
 import Image from "next/image";
 import auroraLogoLight from "../../public/auroraLogoLight.png";
+import auroraLogoDark from "../../public/auroralogodark.png";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -21,6 +24,7 @@ const navigation = [
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { theme } = useTheme();
   const pathname = usePathname();
 
   // Handle scroll effect
@@ -56,7 +60,9 @@ export default function Navigation() {
       <header
         className={`fixed w-screen top-0 left-0 z-40 transition-all duration-300 ease-out ${
           isScrolled
-            ? "bg-white/95 backdrop-blur-md border-b border-gray-200/20"
+            ? theme === "dark"
+              ? "bg-gray-900/95 backdrop-blur-md border-b border-gray-700/20"
+              : "bg-white/95 backdrop-blur-md border-b border-gray-200/20"
             : "bg-transparent"
         }`}
       >
@@ -72,7 +78,7 @@ export default function Navigation() {
               onClick={() => setMobileMenuOpen(false)}
             >
               <Image
-                src={auroraLogoLight}
+                src={theme === "dark" ? auroraLogoDark : auroraLogoLight}
                 alt="Aurora Software Labs"
                 width={120}
                 height={40}
@@ -83,15 +89,18 @@ export default function Navigation() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="flex lg:hidden">
+          <div className="flex items-center gap-2 lg:hidden">
+            <ThemeToggle />
             <Button
               variant="ghost"
               size="icon"
-              className="p-2 hover:bg-primary/10 hover:scale-110 transition-all duration-200"
+              className={`p-2 hover:bg-primary/10 hover:scale-110 transition-all duration-200 ${
+                theme === "dark" ? "text-white" : "text-gray-900"
+              }`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Open main menu"
             >
-              <Menu className="h-20 w-20" />
+              <Menu className="h-5 w-5" />
             </Button>
           </div>
 
@@ -106,6 +115,8 @@ export default function Navigation() {
                   className={`relative text-sm font-semibold transition-all duration-300 ease-out group ${
                     isActive
                       ? "text-primary"
+                      : theme === "dark"
+                      ? "text-white hover:text-primary"
                       : "text-gray-900 hover:text-primary"
                   }`}
                 >
@@ -122,8 +133,9 @@ export default function Navigation() {
             })}
           </div>
 
-          {/* Desktop CTA */}
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          {/* Desktop CTA and Theme Toggle */}
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-4">
+            <ThemeToggle />
             <Button asChild>
               <Link href="/contact">Let&apos;s Build Together</Link>
             </Button>

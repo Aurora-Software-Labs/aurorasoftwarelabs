@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { useTheme } from "@/contexts/ThemeContext";
 import { companyInfo, whyChooseUs } from "@/data";
 
 const fadeInUp = {
@@ -45,12 +46,20 @@ const valueIcons = {
 };
 
 export default function AboutPage() {
+  const { theme } = useTheme();
+
   return (
     <>
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-12 bg-gradient-to-br from-white to-gray-50">
+      <section
+        className={`pt-32 pb-12 ${
+          theme === "dark"
+            ? "bg-gray-900"
+            : "bg-gradient-to-br from-white to-gray-50"
+        }`}
+      >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -62,23 +71,27 @@ export default function AboutPage() {
               variants={fadeInUp}
               className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
             >
-              About <span className="text-primary">Aurora</span>
-              <span className="text-accent"> Software Labs</span>
+              <span className="text-primary">About Aurora</span>
+              <span className="text-[#67c970]"> Software Labs</span>
             </motion.h1>
             <motion.p
               variants={fadeInUp}
-              className="mt-6 text-lg leading-8 text-gray-600"
+              className={`mt-6 text-lg leading-8 ${
+                theme === "dark" ? "text-gray-300" : "text-gray-600"
+              }`}
             >
-              We are the <span className="text-primary">northern lights</span>{" "}
-              for Africa's tech frontier—guiding, inspiring, and illuminating
-              the path to digital innovation across the continent.
+              We are the northern lights for Africa's tech frontier—guiding,
+              inspiring, and illuminating the path to digital innovation across
+              the continent.
             </motion.p>
           </motion.div>
         </div>
       </section>
 
       {/* Mission, Vision, Values */}
-      <section className="py-16">
+      <section
+        className={`py-16 ${theme === "dark" ? "bg-gray-900" : "bg-white"}`}
+      >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -88,11 +101,15 @@ export default function AboutPage() {
             className="grid gap-12 lg:grid-cols-3"
           >
             <motion.div variants={fadeInUp}>
-              <Card className="h-full">
+              <Card
+                className={`h-full ${
+                  theme === "dark" ? "bg-gray-800" : "bg-white"
+                }`}
+              >
                 <CardHeader>
                   <div className="flex items-center space-x-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                      <Target className="h-6 w-6 text-primary" />
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#67c970]/10">
+                      <Target className="h-6 w-6 text-[#67c970]" />
                     </div>
                     <CardTitle className="text-2xl">Our Mission</CardTitle>
                   </div>
@@ -106,11 +123,15 @@ export default function AboutPage() {
             </motion.div>
 
             <motion.div variants={fadeInUp}>
-              <Card className="h-full">
+              <Card
+                className={`h-full ${
+                  theme === "dark" ? "bg-gray-800" : "bg-white"
+                }`}
+              >
                 <CardHeader>
                   <div className="flex items-center space-x-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/10">
-                      <Eye className="h-6 w-6 text-accent" />
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#67c970]/10">
+                      <Eye className="h-6 w-6 text-[#67c970]" />
                     </div>
                     <CardTitle className="text-2xl">Our Vision</CardTitle>
                   </div>
@@ -124,11 +145,15 @@ export default function AboutPage() {
             </motion.div>
 
             <motion.div variants={fadeInUp}>
-              <Card className="h-full">
+              <Card
+                className={`h-full ${
+                  theme === "dark" ? "bg-gray-800" : "bg-white"
+                }`}
+              >
                 <CardHeader>
                   <div className="flex items-center space-x-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                      <Users className="h-6 w-6 text-primary" />
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#67c970]/10">
+                      <Users className="h-6 w-6 text-[#67c970]" />
                     </div>
                     <CardTitle className="text-2xl">Our Values</CardTitle>
                   </div>
@@ -143,7 +168,7 @@ export default function AboutPage() {
                           key={value}
                           className="flex items-center space-x-3"
                         >
-                          <IconComponent className="h-5 w-5 text-accent" />
+                          <IconComponent className="h-5 w-5 text-[#67c970]" />
                           <span className="font-medium">{value}</span>
                         </div>
                       );
@@ -157,7 +182,9 @@ export default function AboutPage() {
       </section>
 
       {/* Company Story */}
-      <section className="py-16 bg-gray-50">
+      <section
+        className={`py-16 ${theme === "dark" ? "bg-gray-800" : "bg-gray-50"}`}
+      >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -167,10 +194,18 @@ export default function AboutPage() {
             className="mx-auto max-w-3xl"
           >
             <motion.div variants={fadeInUp} className="text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              <h2
+                className={`text-3xl font-bold tracking-tight ${
+                  theme === "dark" ? "text-white" : "text-gray-900"
+                } sm:text-4xl`}
+              >
                 Our Story
               </h2>
-              <p className="mt-4 text-lg leading-8 text-gray-600">
+              <p
+                className={`mt-4 text-lg leading-8 ${
+                  theme === "dark" ? "text-gray-300" : "text-gray-600"
+                }`}
+              >
                 Building digital excellence from the heart of Ghana
               </p>
             </motion.div>
@@ -179,14 +214,22 @@ export default function AboutPage() {
               variants={fadeInUp}
               className="mt-12 prose prose-lg mx-auto"
             >
-              <p className="text-gray-600 leading-8">
+              <p
+                className={`text-gray-600 leading-8 ${
+                  theme === "dark" ? "text-white" : "text-gray-600"
+                }`}
+              >
                 Aurora Software Labs was founded with a simple yet ambitious
                 vision: to become Africa's leading hub of software excellence.
                 Based in Ghana, we recognized the immense potential of
                 technology to transform businesses and communities across the
                 continent.
               </p>
-              <p className="text-gray-600 leading-8">
+              <p
+                className={`text-gray-600 leading-8 ${
+                  theme === "dark" ? "text-white" : "text-gray-600"
+                }`}
+              >
                 Our journey began with a passion for creating digital solutions
                 that not only meet international standards but also understand
                 and address the unique challenges faced by African businesses.
@@ -195,7 +238,11 @@ export default function AboutPage() {
                 democratic processes, our work spans diverse sectors and
                 impacts.
               </p>
-              <p className="text-gray-600 leading-8">
+              <p
+                className={`text-gray-600 leading-8 ${
+                  theme === "dark" ? "text-white" : "text-gray-600"
+                }`}
+              >
                 Today, we continue to grow, learn, and innovate, always keeping
                 our core values at the center of everything we do. Every project
                 we undertake is an opportunity to make a meaningful impact and
@@ -207,7 +254,13 @@ export default function AboutPage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-16">
+      <section
+        className={`py-16 ${
+          theme === "dark"
+            ? "bg-gray-900"
+            : "bg-gradient-to-br from-white to-gray-50"
+        }`}
+      >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -218,13 +271,17 @@ export default function AboutPage() {
           >
             <motion.h2
               variants={fadeInUp}
-              className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+              className={`text-3xl font-bold tracking-tight ${
+                theme === "dark" ? "text-white" : "text-gray-900"
+              } sm:text-4xl`}
             >
               Why Choose Aurora Software Labs?
             </motion.h2>
             <motion.p
               variants={fadeInUp}
-              className="mt-4 text-lg leading-8 text-gray-600"
+              className={`mt-4 text-lg leading-8 ${
+                theme === "dark" ? "text-gray-300" : "text-gray-600"
+              }`}
             >
               What sets us apart in the competitive world of software
               development
@@ -240,7 +297,11 @@ export default function AboutPage() {
           >
             {whyChooseUs.map((reason, index) => (
               <motion.div key={reason.title} variants={fadeInUp}>
-                <Card className="h-full hover:shadow-lg transition-shadow">
+                <Card
+                  className={`h-full hover:shadow-lg transition-shadow ${
+                    theme === "dark" ? "bg-gray-800" : "bg-white"
+                  }`}
+                >
                   <CardHeader>
                     <CardTitle className="flex items-center space-x-3">
                       <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary font-bold text-sm">
@@ -262,7 +323,13 @@ export default function AboutPage() {
       </section>
 
       {/* Stats/Achievements */}
-      <section className="py-16 bg-primary text-primary-foreground">
+      <section
+        className={`py-16 ${
+          theme === "dark"
+            ? "bg-gray-800 text-white"
+            : "bg-primary text-primary-foreground"
+        }`}
+      >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -279,7 +346,11 @@ export default function AboutPage() {
             </motion.h2>
             <motion.p
               variants={fadeInUp}
-              className="mt-4 text-lg leading-8 text-primary-foreground/80"
+              className={`mt-4 text-lg leading-8 ${
+                theme === "dark"
+                  ? "text-gray-300"
+                  : "text-primary-foreground/80"
+              }`}
             >
               Measurable results that speak to our commitment
             </motion.p>
@@ -293,23 +364,41 @@ export default function AboutPage() {
             className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:grid-cols-3 lg:max-w-none"
           >
             <motion.div variants={fadeInUp} className="text-center">
-              <div className="text-4xl font-bold text-accent">3+</div>
+              <div className="text-4xl font-bold text-[#67c970]">3+</div>
               <div className="mt-2 text-lg">Projects Completed</div>
-              <div className="mt-1 text-sm text-primary-foreground/60">
+              <div
+                className={`mt-1 text-sm ${
+                  theme === "dark"
+                    ? "text-gray-300"
+                    : "text-primary-foreground/60"
+                }`}
+              >
                 Successfully delivered and deployed
               </div>
             </motion.div>
             <motion.div variants={fadeInUp} className="text-center">
-              <div className="text-4xl font-bold text-accent">100%</div>
+              <div className="text-4xl font-bold text-[#67c970]">100%</div>
               <div className="mt-2 text-lg">Client Satisfaction</div>
-              <div className="mt-1 text-sm text-primary-foreground/60">
+              <div
+                className={`mt-1 text-sm ${
+                  theme === "dark"
+                    ? "text-gray-300"
+                    : "text-primary-foreground/60"
+                }`}
+              >
                 Every client has been delighted
               </div>
             </motion.div>
             <motion.div variants={fadeInUp} className="text-center">
-              <div className="text-4xl font-bold text-accent">24/7</div>
+              <div className="text-4xl font-bold text-[#67c970]">24/7</div>
               <div className="mt-2 text-lg">Support Available</div>
-              <div className="mt-1 text-sm text-primary-foreground/60">
+              <div
+                className={`mt-1 text-sm ${
+                  theme === "dark"
+                    ? "text-gray-300"
+                    : "text-primary-foreground/60"
+                }`}
+              >
                 Always here when you need us
               </div>
             </motion.div>

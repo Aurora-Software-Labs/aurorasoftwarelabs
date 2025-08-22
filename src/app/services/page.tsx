@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { useTheme } from "@/contexts/ThemeContext";
 import { services } from "@/data";
 
 const fadeInUp = {
@@ -36,17 +37,31 @@ const serviceIcons = {
 };
 
 const serviceImages = {
-  "web-development": "/webdev.png",
-  "software-consulting": "/consulting.png",
+  "web-development": {
+    light: "/webdev.png",
+    dark: "/webdev-dark.png",
+  },
+  "software-consulting": {
+    light: "/consulting.png",
+    dark: "/consulting-dark.png",
+  },
 };
 
 export default function ServicesPage() {
+  const { theme } = useTheme();
+
   return (
     <>
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-12 bg-gradient-to-br from-white to-gray-50">
+      <section
+        className={`pt-32 pb-12 ${
+          theme === "dark"
+            ? "bg-gray-900"
+            : "bg-gradient-to-br from-white to-gray-50"
+        }`}
+      >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -56,13 +71,17 @@ export default function ServicesPage() {
           >
             <motion.h1
               variants={fadeInUp}
-              className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+              className={`text-4xl font-bold tracking-tight ${
+                theme === "dark" ? "text-white" : "text-gray-900"
+              } sm:text-6xl`}
             >
               Our <span className="text-primary">Services</span>
             </motion.h1>
             <motion.p
               variants={fadeInUp}
-              className="mt-6 text-lg leading-8 text-gray-600"
+              className={`mt-6 text-lg leading-8 ${
+                theme === "dark" ? "text-gray-300" : "text-gray-600"
+              }`}
             >
               Comprehensive digital solutions designed to empower your business
               and drive meaningful growth in today's competitive landscape.
@@ -72,7 +91,9 @@ export default function ServicesPage() {
       </section>
 
       {/* Services List */}
-      <section className="py-16">
+      <section
+        className={`py-16 ${theme === "dark" ? "bg-gray-900" : "bg-white"}`}
+      >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -93,7 +114,11 @@ export default function ServicesPage() {
                   }`}
                 >
                   <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                    <Card className="h-full">
+                    <Card
+                      className={`h-full ${
+                        theme === "dark" ? "bg-gray-800" : "bg-white"
+                      }`}
+                    >
                       <CardHeader>
                         <div className="flex items-center space-x-4">
                           <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
@@ -104,12 +129,18 @@ export default function ServicesPage() {
                               {service.title}
                             </CardTitle>
                             <div className="flex items-center mt-2">
-                              <Star className="h-4 w-4 text-accent fill-accent" />
-                              <Star className="h-4 w-4 text-accent fill-accent" />
-                              <Star className="h-4 w-4 text-accent fill-accent" />
-                              <Star className="h-4 w-4 text-accent fill-accent" />
-                              <Star className="h-4 w-4 text-accent fill-accent" />
-                              <span className="ml-2 text-sm text-gray-600">
+                              <Star className="h-4 w-4 text-[#67c970] fill-[#67c970]" />
+                              <Star className="h-4 w-4 text-[#67c970] fill-[#67c970]" />
+                              <Star className="h-4 w-4 text-[#67c970] fill-[#67c970]" />
+                              <Star className="h-4 w-4 text-[#67c970] fill-[#67c970]" />
+                              <Star className="h-4 w-4 text-[#67c970] fill-[#67c970]" />
+                              <span
+                                className={`ml-2 text-sm ${
+                                  theme === "dark"
+                                    ? "text-gray-300"
+                                    : "text-gray-600"
+                                }`}
+                              >
                                 Premium Service
                               </span>
                             </div>
@@ -121,7 +152,11 @@ export default function ServicesPage() {
                           {service.description}
                         </CardDescription>
                         <div>
-                          <h4 className="font-semibold text-gray-900 mb-3">
+                          <h4
+                            className={`font-semibold ${
+                              theme === "dark" ? "text-white" : "text-gray-900"
+                            } mb-3`}
+                          >
                             What's Included:
                           </h4>
                           <ul className="space-y-2">
@@ -130,8 +165,16 @@ export default function ServicesPage() {
                                 key={feature}
                                 className="flex items-center space-x-3"
                               >
-                                <CheckCircle className="h-5 w-5 text-accent flex-shrink-0" />
-                                <span className="text-gray-600">{feature}</span>
+                                <CheckCircle className="h-5 w-5 text-[#67c970] flex-shrink-0" />
+                                <span
+                                  className={`${
+                                    theme === "dark"
+                                      ? "text-gray-300"
+                                      : "text-gray-600"
+                                  }`}
+                                >
+                                  {feature}
+                                </span>
                               </li>
                             ))}
                           </ul>
@@ -159,9 +202,13 @@ export default function ServicesPage() {
                       ] && (
                         <Image
                           src={
-                            serviceImages[
-                              service.id as keyof typeof serviceImages
-                            ]
+                            theme === "dark"
+                              ? serviceImages[
+                                  service.id as keyof typeof serviceImages
+                                ]?.dark
+                              : serviceImages[
+                                  service.id as keyof typeof serviceImages
+                                ]?.light
                           }
                           alt={service.title}
                           width={400}
@@ -178,7 +225,11 @@ export default function ServicesPage() {
 
                     {/* Process or benefits */}
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                      <h3
+                        className={`text-xl font-semibold ${
+                          theme === "dark" ? "text-white" : "text-gray-900"
+                        } mb-4`}
+                      >
                         {service.id === "web-development"
                           ? "Our Development Process"
                           : "Our Consulting Approach"}
@@ -191,10 +242,22 @@ export default function ServicesPage() {
                                 1
                               </div>
                               <div>
-                                <h4 className="font-medium">
+                                <h4
+                                  className={`font-medium ${
+                                    theme === "dark"
+                                      ? "text-white"
+                                      : "text-gray-900"
+                                  }`}
+                                >
                                   Discovery & Planning
                                 </h4>
-                                <p className="text-sm text-gray-600">
+                                <p
+                                  className={`text-sm ${
+                                    theme === "dark"
+                                      ? "text-gray-300"
+                                      : "text-gray-600"
+                                  }`}
+                                >
                                   Understanding your requirements and goals
                                 </p>
                               </div>
@@ -204,10 +267,22 @@ export default function ServicesPage() {
                                 2
                               </div>
                               <div>
-                                <h4 className="font-medium">
+                                <h4
+                                  className={`font-medium ${
+                                    theme === "dark"
+                                      ? "text-white"
+                                      : "text-gray-900"
+                                  }`}
+                                >
                                   Design & Development
                                 </h4>
-                                <p className="text-sm text-gray-600">
+                                <p
+                                  className={`text-sm ${
+                                    theme === "dark"
+                                      ? "text-gray-300"
+                                      : "text-gray-600"
+                                  }`}
+                                >
                                   Creating beautiful, functional solutions
                                 </p>
                               </div>
@@ -217,10 +292,22 @@ export default function ServicesPage() {
                                 3
                               </div>
                               <div>
-                                <h4 className="font-medium">
+                                <h4
+                                  className={`font-medium ${
+                                    theme === "dark"
+                                      ? "text-white"
+                                      : "text-gray-900"
+                                  }`}
+                                >
                                   Testing & Launch
                                 </h4>
-                                <p className="text-sm text-gray-600">
+                                <p
+                                  className={`text-sm ${
+                                    theme === "dark"
+                                      ? "text-gray-300"
+                                      : "text-gray-600"
+                                  }`}
+                                >
                                   Ensuring quality and smooth deployment
                                 </p>
                               </div>
@@ -230,10 +317,22 @@ export default function ServicesPage() {
                                 4
                               </div>
                               <div>
-                                <h4 className="font-medium">
+                                <h4
+                                  className={`font-medium ${
+                                    theme === "dark"
+                                      ? "text-white"
+                                      : "text-gray-900"
+                                  }`}
+                                >
                                   Support & Maintenance
                                 </h4>
-                                <p className="text-sm text-gray-600">
+                                <p
+                                  className={`text-sm ${
+                                    theme === "dark"
+                                      ? "text-gray-300"
+                                      : "text-gray-600"
+                                  }`}
+                                >
                                   Ongoing support for optimal performance
                                 </p>
                               </div>
@@ -242,51 +341,101 @@ export default function ServicesPage() {
                         ) : (
                           <>
                             <div className="flex items-start space-x-3">
-                              <div className="flex-shrink-0 w-8 h-8 bg-accent text-accent-foreground rounded-full flex items-center justify-center text-sm font-medium">
+                              <div className="flex-shrink-0 w-8 h-8 bg-[#67c970] text-[#67c970]-foreground rounded-full flex items-center justify-center text-sm font-medium">
                                 1
                               </div>
                               <div>
-                                <h4 className="font-medium">
+                                <h4
+                                  className={`font-medium ${
+                                    theme === "dark"
+                                      ? "text-white"
+                                      : "text-gray-900"
+                                  }`}
+                                >
                                   Current State Analysis
                                 </h4>
-                                <p className="text-sm text-gray-600">
+                                <p
+                                  className={`text-sm ${
+                                    theme === "dark"
+                                      ? "text-gray-300"
+                                      : "text-gray-600"
+                                  }`}
+                                >
                                   Comprehensive review of your existing systems
                                 </p>
                               </div>
                             </div>
                             <div className="flex items-start space-x-3">
-                              <div className="flex-shrink-0 w-8 h-8 bg-accent text-accent-foreground rounded-full flex items-center justify-center text-sm font-medium">
+                              <div className="flex-shrink-0 w-8 h-8 bg-[#67c970] text-[#67c970]-foreground rounded-full flex items-center justify-center text-sm font-medium">
                                 2
                               </div>
                               <div>
-                                <h4 className="font-medium">
+                                <h4
+                                  className={`font-medium ${
+                                    theme === "dark"
+                                      ? "text-white"
+                                      : "text-gray-900"
+                                  }`}
+                                >
                                   Strategic Recommendations
                                 </h4>
-                                <p className="text-sm text-gray-600">
+                                <p
+                                  className={`text-sm ${
+                                    theme === "dark"
+                                      ? "text-gray-300"
+                                      : "text-gray-600"
+                                  }`}
+                                >
                                   Tailored solutions for your specific needs
                                 </p>
                               </div>
                             </div>
                             <div className="flex items-start space-x-3">
-                              <div className="flex-shrink-0 w-8 h-8 bg-accent text-accent-foreground rounded-full flex items-center justify-center text-sm font-medium">
+                              <div className="flex-shrink-0 w-8 h-8 bg-[#67c970] text-[#67c970]-foreground rounded-full flex items-center justify-center text-sm font-medium">
                                 3
                               </div>
                               <div>
-                                <h4 className="font-medium">
+                                <h4
+                                  className={`font-medium ${
+                                    theme === "dark"
+                                      ? "text-white"
+                                      : "text-gray-900"
+                                  }`}
+                                >
                                   Implementation Planning
                                 </h4>
-                                <p className="text-sm text-gray-600">
+                                <p
+                                  className={`text-sm ${
+                                    theme === "dark"
+                                      ? "text-gray-300"
+                                      : "text-gray-600"
+                                  }`}
+                                >
                                   Detailed roadmap for execution
                                 </p>
                               </div>
                             </div>
                             <div className="flex items-start space-x-3">
-                              <div className="flex-shrink-0 w-8 h-8 bg-accent text-accent-foreground rounded-full flex items-center justify-center text-sm font-medium">
+                              <div className="flex-shrink-0 w-8 h-8 bg-[#67c970] text-[#67c970]-foreground rounded-full flex items-center justify-center text-sm font-medium">
                                 4
                               </div>
                               <div>
-                                <h4 className="font-medium">Ongoing Support</h4>
-                                <p className="text-sm text-gray-600">
+                                <h4
+                                  className={`font-medium ${
+                                    theme === "dark"
+                                      ? "text-white"
+                                      : "text-gray-900"
+                                  }`}
+                                >
+                                  Ongoing Support
+                                </h4>
+                                <p
+                                  className={`text-sm ${
+                                    theme === "dark"
+                                      ? "text-gray-300"
+                                      : "text-gray-600"
+                                  }`}
+                                >
                                   Continuous guidance and optimization
                                 </p>
                               </div>
@@ -304,7 +453,9 @@ export default function ServicesPage() {
       </section>
 
       {/* Technologies We Use */}
-      <section className="py-16 bg-gray-50">
+      <section
+        className={`py-16 ${theme === "dark" ? "bg-gray-800" : "bg-gray-50"}`}
+      >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -315,13 +466,17 @@ export default function ServicesPage() {
           >
             <motion.h2
               variants={fadeInUp}
-              className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+              className={`text-3xl font-bold tracking-tight ${
+                theme === "dark" ? "text-white" : "text-gray-900"
+              } sm:text-4xl`}
             >
               Technologies We Master
             </motion.h2>
             <motion.p
               variants={fadeInUp}
-              className="mt-4 text-lg leading-8 text-gray-600"
+              className={`mt-4 text-lg leading-8 ${
+                theme === "dark" ? "text-gray-300" : "text-gray-600"
+              }`}
             >
               We work with modern, proven technologies to ensure your solutions
               are scalable, secure, and future-ready.
@@ -354,8 +509,18 @@ export default function ServicesPage() {
                 variants={fadeInUp}
                 className="flex items-center justify-center"
               >
-                <div className="rounded-lg bg-white px-4 py-3 shadow-sm border text-center min-w-full">
-                  <span className="text-sm font-medium text-gray-900">
+                <div
+                  className={`rounded-lg px-4 py-3 shadow-sm border text-center min-w-full ${
+                    theme === "dark"
+                      ? "bg-gray-700 border-gray-600"
+                      : "bg-white border-gray-200"
+                  }`}
+                >
+                  <span
+                    className={`text-sm font-medium ${
+                      theme === "dark" ? "text-white" : "text-gray-900"
+                    }`}
+                  >
                     {tech}
                   </span>
                 </div>
@@ -366,7 +531,13 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary text-primary-foreground">
+      <section
+        className={`py-16 ${
+          theme === "dark"
+            ? "bg-gray-900 text-gray-100"
+            : " bg-primary text-primary-foreground"
+        }`}
+      >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -378,12 +549,23 @@ export default function ServicesPage() {
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
               Ready to Get Started?
             </h2>
-            <p className="mt-6 text-lg leading-8 text-primary-foreground/80">
+            <p
+              className={`mt-6 text-lg leading-8 ${
+                theme === "dark"
+                  ? "text-gray-300"
+                  : "text-primary-foreground/80"
+              }`}
+            >
               Let's discuss your project requirements and how we can help bring
               your vision to life with our expert services.
             </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Button size="lg" variant="secondary" asChild>
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+              <Button
+                className="w-full md:w-fit"
+                size="lg"
+                variant="secondary"
+                asChild
+              >
                 <Link href="/contact">
                   Start Your Project
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -392,7 +574,7 @@ export default function ServicesPage() {
               <Button
                 variant="outline"
                 size="lg"
-                className="w-full sm:w-auto border-accent-foreground text-primary hover:bg-accent-foreground hover:text-accent"
+                className="w-full sm:w-auto border-accent-foreground text-primary hover:bg-[#67c970]-foreground hover:text-[#67c970]"
                 asChild
               >
                 <Link href="/portfolio">View Our Work</Link>
