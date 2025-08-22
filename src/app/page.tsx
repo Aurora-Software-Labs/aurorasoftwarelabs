@@ -49,7 +49,7 @@ export default function HomePage() {
             sizes="100vw"
           />
           {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white/45 via-white/90 to-white/95"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-white/45 via-white/90 to-white"></div>
         </div>
 
         {/* Content */}
