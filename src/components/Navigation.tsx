@@ -20,7 +20,17 @@ const navigation = [
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Close mobile menu when resizing to desktop
   useEffect(() => {
@@ -39,11 +49,17 @@ export default function Navigation() {
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [mobileMenuOpen]);
+  }, []);
 
   return (
     <>
-      <header className="fixed w-screen top-0 left-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200/20">
+      <header
+        className={`fixed w-screen top-0 left-0 z-40 transition-all duration-300 ease-out ${
+          isScrolled
+            ? "bg-white/95 backdrop-blur-md border-b border-gray-200/20"
+            : "bg-transparent"
+        }`}
+      >
         <nav
           className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
           aria-label="Global"

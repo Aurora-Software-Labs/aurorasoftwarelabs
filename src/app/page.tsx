@@ -37,8 +37,23 @@ export default function HomePage() {
       <Navigation />
 
       {/* Hero Section - Centered viewport */}
-      <section className="min-h-[calc(100vh-4rem)] md:min-h-screen flex items-center justify-center bg-gradient-to-br from-white to-gray-50 pt-16">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <section className="min-h-[calc(100vh-4rem)] md:min-h-screen flex items-center justify-center relative pt-16 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/aurora-landscape.jpg"
+            alt="Aurora landscape"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/45 via-white/90 to-white/95"></div>
+        </div>
+
+        {/* Content */}
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial="initial"
             animate="animate"
