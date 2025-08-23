@@ -14,7 +14,6 @@ import {
 } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { useTheme } from "@/contexts/ThemeContext";
 import { companyInfo, services, projects, testimonials } from "@/data";
 
 // Optimized, lighter animations
@@ -33,8 +32,6 @@ const staggerContainer = {
 };
 
 export default function HomePage() {
-  const { theme } = useTheme();
-
   return (
     <>
       <Navigation />
@@ -52,13 +49,7 @@ export default function HomePage() {
             sizes="100vw"
           />
           {/* Gradient overlay */}
-          <div
-            className={`absolute inset-0 ${
-              theme === "dark"
-                ? "bg-gradient-to-br from-gray-900/45 via-gray-900/90 to-gray-900"
-                : "bg-gradient-to-br from-white/45 via-white/90 to-white"
-            }`}
-          ></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900/45 via-gray-900/90 to-gray-900"></div>
         </div>
 
         {/* Content */}
@@ -73,35 +64,27 @@ export default function HomePage() {
               variants={fadeIn}
               className="text-3xl font-bold tracking-tight sm:text-5xl md:text-6xl"
             >
-              <span
-                className={theme === "dark" ? "text-white" : "text-gray-900"}
-              >
-                Crafting Digital{" "}
-              </span>
-              <span className="text-primary block sm:inline">Excellence</span>
-              <span
-                className={theme === "dark" ? "text-white" : "text-gray-900"}
-              >
-                {" "}
-              </span>
+              <span className="text-white">Crafting Digital Excellence</span>
+              <span className="text-white"> </span>
               <span className="text-[#67c970] block sm:inline">for Africa</span>
             </motion.h1>
             <motion.p
               variants={fadeIn}
-              className={`mt-6 text-base leading-7 sm:text-lg sm:leading-8 max-w-2xl mx-auto ${
-                theme === "dark" ? "text-gray-300" : "text-gray-600"
-              }`}
+              className="mt-6 text-base leading-7 sm:text-lg sm:leading-8 max-w-2xl mx-auto text-gray-300"
             >
-              Guiding Africa's tech frontier like the{" "}
-              <span className="text-primary">Northern Lights</span>—illuminating
-              innovation, unlocking opportunity, and driving digital
-              transformation.
+              Guiding Africa's tech frontier like the Northern
+              Lights—illuminating innovation, unlocking opportunity, and driving
+              digital transformation.
             </motion.p>
             <motion.div
               variants={fadeIn}
               className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
             >
-              <Button size="lg" asChild className="w-full sm:w-auto">
+              <Button
+                size="lg"
+                asChild
+                className="w-full md:w-auto bg-white/90 text-gray-900 hover:bg-gray-100 px-4 py-2 rounded-md shadow-sm transition-transform duration-200 ease-out hover:scale-105 hover:shadow-md"
+              >
                 <Link href="/contact">
                   Let's Build Together
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -111,7 +94,7 @@ export default function HomePage() {
                 variant="outline"
                 size="lg"
                 asChild
-                className="w-full sm:w-auto"
+                className="w-full sm:w-auto border border-white/20 text-white bg-white/5 hover:bg-white/10 px-4 py-2 rounded-md shadow-sm transition-transform duration-200 ease-out hover:scale-105"
               >
                 <Link href="/portfolio">View Our Work</Link>
               </Button>
@@ -121,11 +104,7 @@ export default function HomePage() {
       </section>
 
       {/* Values Section */}
-      <section
-        className={`py-16 lg:py-20 ${
-          theme === "dark" ? "bg-gray-900" : "bg-white"
-        }`}
-      >
+      <section className="py-16 lg:py-20 bg-gray-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -136,17 +115,13 @@ export default function HomePage() {
           >
             <motion.h2
               variants={fadeIn}
-              className={`text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl ${
-                theme === "dark" ? "text-white" : "text-gray-900"
-              }`}
+              className="text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl text-white"
             >
               Our Core Values
             </motion.h2>
             <motion.p
               variants={fadeIn}
-              className={`mt-4 text-base leading-7 sm:text-lg sm:leading-8 ${
-                theme === "dark" ? "text-gray-300" : "text-gray-600"
-              }`}
+              className="mt-4 text-base leading-7 sm:text-lg sm:leading-8 text-gray-300"
             >
               The principles that guide everything we do
             </motion.p>
@@ -161,14 +136,10 @@ export default function HomePage() {
           >
             {companyInfo.values.map((value) => (
               <motion.div key={value} variants={fadeIn} className="text-center">
-                <div className="mx-auto flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-primary/10">
-                  <Star className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
+                <div className="mx-auto flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-white/10">
+                  <Star className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                 </div>
-                <h3
-                  className={`mt-3 sm:mt-4 text-sm sm:text-lg font-semibold ${
-                    theme === "dark" ? "text-white" : "text-gray-900"
-                  }`}
-                >
+                <h3 className="mt-3 sm:mt-4 text-sm sm:text-lg font-semibold text-white">
                   {value}
                 </h3>
               </motion.div>
@@ -178,11 +149,7 @@ export default function HomePage() {
       </section>
 
       {/* Services Preview */}
-      <section
-        className={`py-16 lg:py-20 ${
-          theme === "dark" ? "bg-gray-800" : "bg-gray-50"
-        }`}
-      >
+      <section className="py-16 lg:py-20 bg-gray-800">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -193,17 +160,13 @@ export default function HomePage() {
           >
             <motion.h2
               variants={fadeIn}
-              className={`text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl ${
-                theme === "dark" ? "text-white" : "text-gray-900"
-              }`}
+              className="text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl text-white"
             >
               Our Services
             </motion.h2>
             <motion.p
               variants={fadeIn}
-              className={`mt-4 text-base leading-7 sm:text-lg sm:leading-8 ${
-                theme === "dark" ? "text-gray-300" : "text-gray-600"
-              }`}
+              className="mt-4 text-base leading-7 sm:text-lg sm:leading-8 text-gray-300"
             >
               Comprehensive digital solutions tailored to your needs
             </motion.p>
@@ -218,42 +181,26 @@ export default function HomePage() {
           >
             {services.map((service) => (
               <motion.div key={service.id} variants={fadeIn}>
-                <Card
-                  className={`h-full hover:shadow-lg transition-shadow duration-300 ${
-                    theme === "dark"
-                      ? "bg-gray-900 border-gray-700"
-                      : "bg-white"
-                  }`}
-                >
+                <Card className="h-full hover:shadow-lg transition-shadow duration-300 bg-gray-900 border-gray-700">
                   <CardHeader>
                     <div className="flex items-center space-x-3">
-                      <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-primary/10">
-                        <Code className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+                      <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-white/10">
+                        <Code className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                       </div>
-                      <CardTitle
-                        className={`text-lg sm:text-xl ${
-                          theme === "dark" ? "text-white" : "text-gray-900"
-                        }`}
-                      >
+                      <CardTitle className="text-lg sm:text-xl text-white">
                         {service.title}
                       </CardTitle>
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription
-                      className={`text-base leading-6 sm:leading-7 ${
-                        theme === "dark" ? "text-gray-300" : "text-gray-600"
-                      }`}
-                    >
+                    <CardDescription className="text-base leading-6 sm:leading-7 text-gray-300">
                       {service.description}
                     </CardDescription>
                     <ul className="mt-4 space-y-2">
                       {service.features.slice(0, 3).map((feature) => (
                         <li
                           key={feature}
-                          className={`flex items-center text-sm ${
-                            theme === "dark" ? "text-gray-300" : "text-gray-600"
-                          }`}
+                          className="flex items-center text-sm text-gray-300"
                         >
                           <ChevronRight className="h-4 w-4 text-[#67c970] mr-2 flex-shrink-0" />
                           <span>{feature}</span>
@@ -273,7 +220,11 @@ export default function HomePage() {
             variants={fadeIn}
             className="mt-8 sm:mt-12 text-center"
           >
-            <Button variant="outline" asChild>
+            <Button
+              variant="outline"
+              asChild
+              className="w-auto border border-white/20 text-white bg-white/5 hover:bg-white/10 px-4 py-2 rounded-md shadow-sm transition-transform duration-200 ease-out hover:scale-105"
+            >
               <Link href="/services">
                 View All Services
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -284,11 +235,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured Projects */}
-      <section
-        className={`py-16 lg:py-20 ${
-          theme === "dark" ? "bg-gray-900" : "bg-white"
-        }`}
-      >
+      <section className="py-16 lg:py-20 bg-gray-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -299,17 +246,13 @@ export default function HomePage() {
           >
             <motion.h2
               variants={fadeIn}
-              className={`text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl ${
-                theme === "dark" ? "text-white" : "text-gray-900"
-              }`}
+              className="text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl text-white"
             >
               Featured Projects
             </motion.h2>
             <motion.p
               variants={fadeIn}
-              className={`mt-4 text-base leading-7 sm:text-lg sm:leading-8 ${
-                theme === "dark" ? "text-gray-300" : "text-gray-600"
-              }`}
+              className="mt-4 text-base leading-7 sm:text-lg sm:leading-8 text-gray-300"
             >
               Showcasing our recent work and success stories
             </motion.p>
@@ -324,13 +267,7 @@ export default function HomePage() {
           >
             {projects.map((project) => (
               <motion.div key={project.id} variants={fadeIn}>
-                <Card
-                  className={`h-full hover:shadow-lg transition-shadow duration-300 group ${
-                    theme === "dark"
-                      ? "bg-gray-800 border-gray-700"
-                      : "bg-white"
-                  }`}
-                >
+                <Card className="h-full hover:shadow-lg transition-shadow duration-300 group bg-gray-800 border-gray-700">
                   <div className="aspect-[16/9] bg-gray-200 rounded-t-lg relative overflow-hidden">
                     {project.image ? (
                       <Image
@@ -347,22 +284,14 @@ export default function HomePage() {
                     )}
                   </div>
                   <CardHeader>
-                    <CardTitle
-                      className={`group-hover:text-primary transition-colors duration-200 text-lg ${
-                        theme === "dark" ? "text-white" : "text-gray-900"
-                      }`}
-                    >
+                    <CardTitle className="group-hover:text-white text-white/90 transition-colors duration-200 text-lg">
                       {project.title}
                     </CardTitle>
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.slice(0, 2).map((tech) => (
                         <span
                           key={tech}
-                          className={`inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ${
-                            theme === "dark"
-                              ? "bg-gray-700 text-gray-300"
-                              : "bg-gray-100 text-gray-600"
-                          }`}
+                          className="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-gray-700 text-gray-300"
                         >
                           {tech}
                         </span>
@@ -370,15 +299,16 @@ export default function HomePage() {
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription
-                      className={`text-sm sm:text-base leading-6 ${
-                        theme === "dark" ? "text-gray-300" : "text-gray-600"
-                      }`}
-                    >
+                    <CardDescription className="text-sm sm:text-base leading-6 text-gray-300">
                       {project.description}
                     </CardDescription>
                     <div className="mt-4">
-                      <Button variant="outline" size="sm" asChild>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        asChild
+                        className="w-auto border border-white/20 text-white bg-white/5 hover:bg-white/10 px-4 py-2 rounded-md shadow-sm transition-transform duration-200 ease-out hover:scale-105"
+                      >
                         <Link
                           href={project.url}
                           target="_blank"
@@ -402,7 +332,11 @@ export default function HomePage() {
             variants={fadeIn}
             className="mt-8 sm:mt-12 text-center"
           >
-            <Button variant="outline" asChild>
+            <Button
+              variant="outline"
+              asChild
+              className="w-auto border border-white/20 text-white bg-white/5 hover:bg-white/10 px-4 py-2 rounded-md shadow-sm transition-transform duration-200 ease-out hover:scale-105"
+            >
               <Link href="/portfolio">
                 View All Projects
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -413,11 +347,7 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section
-        className={`py-16 lg:py-20 ${
-          theme === "dark" ? "bg-gray-800" : "bg-black"
-        } text-white`}
-      >
+      <section className="py-16 lg:py-20 bg-gray-800 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -449,11 +379,7 @@ export default function HomePage() {
           >
             {testimonials.map((testimonial) => (
               <motion.div key={testimonial.id} variants={fadeIn}>
-                <Card
-                  className={`${
-                    theme === "dark" ? "bg-gray-900" : "bg-primary-foreground"
-                  } text-primary h-full`}
-                >
+                <Card className="bg-gray-900 text-white/90 h-full border border-white/10">
                   <CardContent className="p-4 sm:p-6">
                     <div className="flex items-center mb-4">
                       {[...Array(testimonial.rating)].map((_, i) => (
@@ -466,11 +392,11 @@ export default function HomePage() {
                     <p className="text-sm leading-6 mb-4">
                       "{testimonial.content}"
                     </p>
-                    <div className="border-t pt-4">
+                    <div className="border-t border-white/10 pt-4">
                       <p className="font-semibold text-sm sm:text-base">
                         {testimonial.name}
                       </p>
-                      <p className="text-xs sm:text-sm text-muted-foreground">
+                      <p className="text-xs sm:text-sm text-white/55">
                         {testimonial.role}, {testimonial.company}
                       </p>
                     </div>
@@ -492,18 +418,10 @@ export default function HomePage() {
             variants={fadeIn}
             className="mx-auto max-w-2xl text-center"
           >
-            <h2
-              className={`text-2xl font-bold tracking-tight ${
-                theme === "dark" ? "text-gray-900" : "text-black"
-              } sm:text-3xl lg:text-4xl`}
-            >
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl">
               Ready to Start Your Project?
             </h2>
-            <p
-              className={`mt-6 text-base leading-7 ${
-                theme === "dark" ? "text-gray-900/80" : "text-black/80"
-              } sm:text-lg sm:leading-8`}
-            >
+            <p className="mt-6 text-base leading-7 text-gray-900/80 sm:text-lg sm:leading-8">
               Let's discuss how we can bring your digital vision to life. Get in
               touch for a free consultation.
             </p>

@@ -15,14 +15,12 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useTheme } from "@/contexts/ThemeContext";
 
 interface CareerFormProps {
   onSubmitSuccess?: () => void;
 }
 
 export default function CareerForm({ onSubmitSuccess }: CareerFormProps) {
-  const { theme } = useTheme();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -164,7 +162,7 @@ ${formData.message}`
   };
 
   return (
-    <Card className={`${theme === "dark" ? "bg-gray-900" : "bg-white"}`}>
+    <Card className="bg-gray-900">
       <CardHeader>
         <CardTitle className="text-2xl">Apply to Join Our Team</CardTitle>
         <CardDescription>
@@ -178,9 +176,7 @@ ${formData.message}`
             <div>
               <label
                 htmlFor="name"
-                className={`block text-sm font-medium mb-1 ${
-                  theme === "dark" ? "text-gray-300" : "text-gray-700"
-                }`}
+                className="block text-sm font-medium mb-1 text-gray-300"
               >
                 Full Name *
               </label>
@@ -197,9 +193,7 @@ ${formData.message}`
             <div>
               <label
                 htmlFor="email"
-                className={`block text-sm font-medium mb-1 ${
-                  theme === "dark" ? "text-gray-300" : "text-gray-700"
-                }`}
+                className="block text-sm font-medium mb-1 text-gray-300"
               >
                 Email Address *
               </label>
@@ -219,9 +213,7 @@ ${formData.message}`
             <div>
               <label
                 htmlFor="phone"
-                className={`block text-sm font-medium mb-1 ${
-                  theme === "dark" ? "text-gray-300" : "text-gray-700"
-                }`}
+                className="block text-sm font-medium mb-1 text-gray-300"
               >
                 Phone Number
               </label>
@@ -237,9 +229,7 @@ ${formData.message}`
             <div>
               <label
                 htmlFor="position"
-                className={`block text-sm font-medium mb-1 ${
-                  theme === "dark" ? "text-gray-300" : "text-gray-700"
-                }`}
+                className="block text-sm font-medium mb-1 text-gray-300"
               >
                 Position of Interest
               </label>
@@ -258,9 +248,7 @@ ${formData.message}`
             <div>
               <label
                 htmlFor="experience"
-                className={`block text-sm font-medium mb-1 ${
-                  theme === "dark" ? "text-gray-300" : "text-gray-700"
-                }`}
+                className="block text-sm font-medium mb-1 text-gray-300"
               >
                 Years of Experience
               </label>
@@ -276,9 +264,7 @@ ${formData.message}`
             <div>
               <label
                 htmlFor="portfolio"
-                className={`block text-sm font-medium mb-1 ${
-                  theme === "dark" ? "text-gray-300" : "text-gray-700"
-                }`}
+                className="block text-sm font-medium mb-1 text-gray-300"
               >
                 Portfolio/Website URL
               </label>
@@ -296,9 +282,7 @@ ${formData.message}`
           <div>
             <label
               htmlFor="linkedin"
-              className={`block text-sm font-medium mb-1 ${
-                theme === "dark" ? "text-gray-300" : "text-gray-700"
-              }`}
+              className="block text-sm font-medium mb-1 text-gray-300"
             >
               LinkedIn Profile
             </label>
@@ -317,9 +301,7 @@ ${formData.message}`
             <div>
               <label
                 htmlFor="resume"
-                className={`block text-sm font-medium mb-1 ${
-                  theme === "dark" ? "text-gray-300" : "text-gray-700"
-                }`}
+                className="block text-sm font-medium mb-1 text-gray-300"
               >
                 Resume / CV *
               </label>
@@ -334,27 +316,15 @@ ${formData.message}`
                 />
                 <label
                   htmlFor="resume"
-                  className={`flex items-center justify-center w-full p-3 border-2 border-dashed rounded-md cursor-pointer transition-colors ${
-                    theme === "dark"
-                      ? "border-gray-600 hover:border-[#67c970] hover:bg-gray-700"
-                      : "border-gray-300 hover:border-[#67c970] hover:bg-green-50"
-                  }`}
+                  className="flex items-center justify-center w-full p-3 border-2 border-dashed rounded-md cursor-pointer transition-colors border-gray-600 hover:border-[#67c970] hover:bg-gray-700"
                 >
                   <Upload className="mr-2" size={20} />
                   {files.resume ? (
-                    <span
-                      className={`font-medium ${
-                        theme === "dark" ? "text-[#67c970]" : "text-[#123524]"
-                      }`}
-                    >
+                    <span className="font-medium text-[#67c970]">
                       {files.resume.name}
                     </span>
                   ) : (
-                    <span
-                      className={`${
-                        theme === "dark" ? "text-gray-400" : "text-gray-500"
-                      }`}
-                    >
+                    <span className="text-gray-400">
                       Click to upload resume (PDF, DOC, DOCX)
                     </span>
                   )}
@@ -364,9 +334,7 @@ ${formData.message}`
             <div>
               <label
                 htmlFor="coverLetter"
-                className={`block text-sm font-medium mb-1 ${
-                  theme === "dark" ? "text-gray-300" : "text-gray-700"
-                }`}
+                className="block text-sm font-medium mb-1 text-gray-300"
               >
                 Cover Letter (Optional)
               </label>
@@ -380,27 +348,15 @@ ${formData.message}`
                 />
                 <label
                   htmlFor="coverLetter"
-                  className={`flex items-center justify-center w-full p-3 border-2 border-dashed rounded-md cursor-pointer transition-colors ${
-                    theme === "dark"
-                      ? "border-gray-600 hover:border-[#67c970] hover:bg-gray-700"
-                      : "border-gray-300 hover:border-[#67c970] hover:bg-green-50"
-                  }`}
+                  className="flex items-center justify-center w-full p-3 border-2 border-dashed rounded-md cursor-pointer transition-colors border-gray-600 hover:border-[#67c970] hover:bg-gray-700"
                 >
                   <Upload className="mr-2" size={20} />
                   {files.coverLetter ? (
-                    <span
-                      className={`font-medium ${
-                        theme === "dark" ? "text-[#67c970]" : "text-[#123524]"
-                      }`}
-                    >
+                    <span className="font-medium text-[#67c970]">
                       {files.coverLetter.name}
                     </span>
                   ) : (
-                    <span
-                      className={`${
-                        theme === "dark" ? "text-gray-400" : "text-gray-500"
-                      }`}
-                    >
+                    <span className="text-gray-400">
                       Click to upload cover letter (PDF, DOC, DOCX)
                     </span>
                   )}
@@ -412,9 +368,7 @@ ${formData.message}`
           <div>
             <label
               htmlFor="message"
-              className={`block text-sm font-medium mb-1 ${
-                theme === "dark" ? "text-gray-300" : "text-gray-700"
-              }`}
+              className="block text-sm font-medium mb-1 text-gray-300"
             >
               Why Aurora Software Labs?
             </label>
@@ -433,11 +387,7 @@ ${formData.message}`
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className={`flex items-center gap-2 p-3 rounded-md ${
-                theme === "dark"
-                  ? "text-green-400 bg-green-900/20"
-                  : "text-green-600 bg-green-50"
-              }`}
+              className="flex items-center gap-2 p-3 rounded-md text-green-400 bg-green-900/20"
             >
               <CheckCircle size={20} />
               <span>
@@ -450,11 +400,7 @@ ${formData.message}`
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className={`flex items-center gap-2 p-3 rounded-md ${
-                theme === "dark"
-                  ? "text-red-400 bg-red-900/20"
-                  : "text-red-600 bg-red-50"
-              }`}
+              className="flex items-center gap-2 p-3 rounded-md text-red-400 bg-red-900/20"
             >
               <AlertCircle size={20} />
               <span>
@@ -490,26 +436,12 @@ ${formData.message}`
           </Button>
         </form>
 
-        <div
-          className={`mt-6 p-4 rounded-md border-l-4 border-[#67c970] ${
-            theme === "dark" ? "bg-green-900/10" : "bg-green-50"
-          }`}
-        >
-          <p
-            className={`text-sm ${
-              theme === "dark" ? "text-gray-300" : "text-[#123524]"
-            }`}
-          >
-            <strong
-              className={`${
-                theme === "dark" ? "text-white" : "text-[#123524]"
-              }`}
-            >
-              Note:
-            </strong>{" "}
-            We review all applications carefully. Even if there isn't a perfect
-            match right now, we'll keep your information for future
-            opportunities that align with your skills.
+        <div className="mt-6 p-4 rounded-md border-l-4 border-[#67c970] bg-green-900/10">
+          <p className="text-sm text-gray-300">
+            <strong className="text-white">Note:</strong> We review all
+            applications carefully. Even if there isn't a perfect match right
+            now, we'll keep your information for future opportunities that align
+            with your skills.
           </p>
         </div>
       </CardContent>
