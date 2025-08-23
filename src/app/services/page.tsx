@@ -75,7 +75,7 @@ export default function ServicesPage() {
                 theme === "dark" ? "text-white" : "text-gray-900"
               } sm:text-6xl`}
             >
-              Our <span className="text-primary">Services</span>
+              Our Services
             </motion.h1>
             <motion.p
               variants={fadeInUp}
@@ -115,17 +115,17 @@ export default function ServicesPage() {
                 >
                   <div className={index % 2 === 1 ? "lg:order-2" : ""}>
                     <Card
-                      className={`h-full ${
+                      className={`h-full border border-white/10 ${
                         theme === "dark" ? "bg-gray-800" : "bg-white"
                       }`}
                     >
                       <CardHeader>
                         <div className="flex items-center space-x-4">
-                          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-                            <IconComponent className="h-8 w-8 text-primary" />
+                          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/10">
+                            <IconComponent className="h-8 w-8 text-white" />
                           </div>
                           <div>
-                            <CardTitle className="text-2xl">
+                            <CardTitle className="text-2xl text-white/90">
                               {service.title}
                             </CardTitle>
                             <div className="flex items-center mt-2">
@@ -148,7 +148,7 @@ export default function ServicesPage() {
                         </div>
                       </CardHeader>
                       <CardContent className="space-y-6">
-                        <CardDescription className="text-base leading-7">
+                        <CardDescription className="text-base leading-7 text-white/55">
                           {service.description}
                         </CardDescription>
                         <div>
@@ -180,7 +180,10 @@ export default function ServicesPage() {
                           </ul>
                         </div>
                         <div className="pt-4">
-                          <Button asChild>
+                          <Button
+                            asChild
+                            className="w-full sm:w-auto bg-white/90 text-gray-900 hover:bg-gray-100 px-4 py-2 rounded-md shadow-sm transition-transform duration-200 ease-out hover:scale-105 hover:shadow-md"
+                          >
                             <Link href="/contact">
                               Get Started
                               <ArrowRight className="ml-2 h-4 w-4" />
@@ -238,32 +241,20 @@ export default function ServicesPage() {
                         {service.id === "web-development" ? (
                           <>
                             <div className="flex items-start space-x-3">
-                              <div className="flex-shrink-0 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-medium">
+                              <div className="flex-shrink-0 w-8 h-8 bg-white text-black rounded-full flex items-center justify-center text-sm font-medium">
                                 1
                               </div>
                               <div>
-                                <h4
-                                  className={`font-medium ${
-                                    theme === "dark"
-                                      ? "text-white"
-                                      : "text-gray-900"
-                                  }`}
-                                >
+                                <h4 className={`font-medium text-white`}>
                                   Discovery & Planning
                                 </h4>
-                                <p
-                                  className={`text-sm ${
-                                    theme === "dark"
-                                      ? "text-gray-300"
-                                      : "text-gray-600"
-                                  }`}
-                                >
+                                <p className={`text-sm text-gray-300`}>
                                   Understanding your requirements and goals
                                 </p>
                               </div>
                             </div>
                             <div className="flex items-start space-x-3">
-                              <div className="flex-shrink-0 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-medium">
+                              <div className="flex-shrink-0 w-8 h-8 bg-white text-black rounded-full flex items-center justify-center text-sm font-medium">
                                 2
                               </div>
                               <div>
@@ -288,7 +279,7 @@ export default function ServicesPage() {
                               </div>
                             </div>
                             <div className="flex items-start space-x-3">
-                              <div className="flex-shrink-0 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-medium">
+                              <div className="flex-shrink-0 w-8 h-8 bg-white text-black rounded-full flex items-center justify-center text-sm font-medium">
                                 3
                               </div>
                               <div>
@@ -313,7 +304,7 @@ export default function ServicesPage() {
                               </div>
                             </div>
                             <div className="flex items-start space-x-3">
-                              <div className="flex-shrink-0 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-medium">
+                              <div className="flex-shrink-0 w-8 h-8 bg-white text-black rounded-full flex items-center justify-center text-sm font-medium">
                                 4
                               </div>
                               <div>
@@ -549,19 +540,13 @@ export default function ServicesPage() {
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
               Ready to Get Started?
             </h2>
-            <p
-              className={`mt-6 text-lg leading-8 ${
-                theme === "dark"
-                  ? "text-gray-300"
-                  : "text-primary-foreground/80"
-              }`}
-            >
+            <p className={`mt-6 text-lg leading-8 text-gray-300`}>
               Let's discuss your project requirements and how we can help bring
               your vision to life with our expert services.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
               <Button
-                className="w-full md:w-fit"
+                className="w-full sm:w-fit"
                 size="lg"
                 variant="secondary"
                 asChild
@@ -574,7 +559,7 @@ export default function ServicesPage() {
               <Button
                 variant="outline"
                 size="lg"
-                className="w-full sm:w-auto border-accent-foreground text-primary hover:bg-[#67c970]-foreground hover:text-[#67c970]"
+                className="w-full sm:w-auto border border-white/20 text-white bg-white/5 hover:bg-white/10 px-4 py-2 rounded-md shadow-sm transition-transform duration-200 ease-out hover:scale-105"
                 asChild
               >
                 <Link href="/portfolio">View Our Work</Link>
