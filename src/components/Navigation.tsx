@@ -190,7 +190,7 @@ export default function Navigation() {
                         className={`block text-base font-semibold transition-all duration-200 ease-out relative ${
                           isActive
                             ? "text-[#67c970] translate-x-2"
-                            : "text-white hover:text-primary hover:translate-x-2"
+                            : "text-white hover:text-[#67c970] hover:translate-x-2"
                         }`}
                         onClick={() => setMobileMenuOpen(false)}
                       >
@@ -206,7 +206,10 @@ export default function Navigation() {
 
               {/* CTA at bottom */}
               <div className="mt-auto pt-6">
-                <Button asChild className="w-full">
+                <Button
+                  asChild
+                  className="w-full hover:cursor-pointer bg-white text-black hover:bg-gray-100"
+                >
                   <Link
                     href="/contact"
                     onClick={() => setMobileMenuOpen(false)}

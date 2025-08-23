@@ -128,7 +128,7 @@ export default function ContactPage() {
                 theme === "dark" ? "text-white" : "text-gray-900"
               } sm:text-6xl`}
             >
-              Let's Build <span className="text-primary">Together</span>
+              Let's Build Together
             </motion.h1>
             <motion.p
               variants={fadeInUp}
@@ -157,12 +157,12 @@ export default function ContactPage() {
               viewport={{ once: true }}
               variants={fadeInUp}
             >
-              <Card
-                className={`${theme === "dark" ? "bg-gray-800" : "bg-white"}`}
-              >
+              <Card className={`bg-gray-800 border border-white/10`}>
                 <CardHeader>
-                  <CardTitle className="text-2xl">Send us a Message</CardTitle>
-                  <CardDescription>
+                  <CardTitle className="text-2xl text-white">
+                    Send us a Message
+                  </CardTitle>
+                  <CardDescription className="text-white/55">
                     Fill out the form below and we'll get back to you within 24
                     hours.
                   </CardDescription>
@@ -173,9 +173,7 @@ export default function ContactPage() {
                       <div>
                         <label
                           htmlFor="name"
-                          className={`block text-sm font-medium mb-2 ${
-                            theme === "dark" ? "text-gray-300" : "text-gray-700"
-                          }`}
+                          className={`block text-sm font-medium mb-2 text-gray-200`}
                         >
                           Full Name *
                         </label>
@@ -187,6 +185,7 @@ export default function ContactPage() {
                           value={formData.name}
                           onChange={handleInputChange}
                           placeholder="John Doe"
+                          className="bg-gray-750 border border-white/20 text-white placeholder:text-gray-300"
                         />
                       </div>
                       <div>
@@ -206,6 +205,7 @@ export default function ContactPage() {
                           value={formData.email}
                           onChange={handleInputChange}
                           placeholder="john@example.com"
+                          className="bg-gray-750 border border-white/20 text-white placeholder:text-gray-300"
                         />
                       </div>
                     </div>
@@ -227,6 +227,7 @@ export default function ContactPage() {
                           value={formData.company}
                           onChange={handleInputChange}
                           placeholder="Your Company"
+                          className="bg-gray-750 border border-white/20 text-white placeholder:text-gray-300"
                         />
                       </div>
                       <div>
@@ -246,6 +247,7 @@ export default function ContactPage() {
                           value={formData.subject}
                           onChange={handleInputChange}
                           placeholder="Project Discussion"
+                          className="bg-gray-750 border border-white/20 text-white placeholder:text-gray-300"
                         />
                       </div>
                     </div>
@@ -267,13 +269,14 @@ export default function ContactPage() {
                         value={formData.message}
                         onChange={handleInputChange}
                         placeholder="Tell us about your project, goals, and how we can help..."
+                        className="bg-gray-750 border border-white/20 text-white placeholder:text-gray-300"
                       />
                     </div>
 
                     <Button
                       type="submit"
                       size="lg"
-                      className="w-full"
+                      className="w-full bg-white text-black hover:bg-gray-100 hover:cursor-pointer"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? (
@@ -322,12 +325,10 @@ export default function ContactPage() {
               className="space-y-8"
             >
               <motion.div variants={fadeInUp}>
-                <Card
-                  className={`${theme === "dark" ? "bg-gray-800" : "bg-white"}`}
-                >
+                <Card className={`bg-gray-800 border border-white/10`}>
                   <CardHeader>
-                    <CardTitle className="flex items-center space-x-3">
-                      <Mail className="h-6 w-6 text-primary" />
+                    <CardTitle className="flex items-center space-x-3 text-white">
+                      <Mail className="h-6 w-6 text-white" />
                       <span>Email Us</span>
                     </CardTitle>
                   </CardHeader>
@@ -341,7 +342,7 @@ export default function ContactPage() {
                     </p>
                     <a
                       href={`mailto:${companyInfo.email}`}
-                      className="text-primary hover:text-primary/80 font-medium text-lg"
+                      className="text-white hover:text-white/80 font-medium text-lg"
                     >
                       {companyInfo.email}
                     </a>
@@ -350,12 +351,10 @@ export default function ContactPage() {
               </motion.div>
 
               <motion.div variants={fadeInUp}>
-                <Card
-                  className={`${theme === "dark" ? "bg-gray-800" : "bg-white"}`}
-                >
+                <Card className={`bg-gray-800 border border-white/10`}>
                   <CardHeader>
-                    <CardTitle className="flex items-center space-x-3">
-                      <MapPin className="h-6 w-6 text-primary" />
+                    <CardTitle className="flex items-center space-x-3 text-white">
+                      <MapPin className="h-6 w-6 text-white" />
                       <span>Our Location</span>
                     </CardTitle>
                   </CardHeader>
@@ -380,12 +379,10 @@ export default function ContactPage() {
               </motion.div>
 
               <motion.div variants={fadeInUp}>
-                <Card
-                  className={`${theme === "dark" ? "bg-gray-800" : "bg-white"}`}
-                >
+                <Card className={`bg-gray-800 border border-white/10`}>
                   <CardHeader>
-                    <CardTitle className="flex items-center space-x-3">
-                      <Clock className="h-6 w-6 text-primary" />
+                    <CardTitle className="flex items-center space-x-3 text-white">
+                      <Clock className="h-6 w-6 text-white" />
                       <span>Response Time</span>
                     </CardTitle>
                   </CardHeader>
@@ -405,13 +402,9 @@ export default function ContactPage() {
 
               {/* Newsletter Signup */}
               <motion.div variants={fadeInUp}>
-                <Card
-                  className={`bg-gradient-to-br from-primary/5 to-accent/5 ${
-                    theme === "dark" ? "bg-gray-800" : ""
-                  }`}
-                >
+                <Card className={`bg-gray-800 dark`}>
                   <CardHeader>
-                    <CardTitle>Stay Updated</CardTitle>
+                    <CardTitle className="text-white">Stay Updated</CardTitle>
                     <CardDescription>
                       Subscribe to our newsletter for the latest updates on our
                       projects and insights into African tech innovation.
@@ -422,9 +415,11 @@ export default function ContactPage() {
                       <Input
                         type="email"
                         placeholder="Enter your email"
-                        className="flex-1"
+                        className="flex-1 bg-gray-750 border border-white/20 text-white placeholder:text-gray-300"
                       />
-                      <Button>Subscribe</Button>
+                      <Button className="hover:cursor-pointer">
+                        Subscribe
+                      </Button>
                     </div>
                     <p
                       className={`text-xs mt-2 ${
@@ -480,9 +475,7 @@ export default function ContactPage() {
           >
             {faq.map((item) => (
               <motion.div key={item.id} variants={fadeInUp}>
-                <Card
-                  className={`${theme === "dark" ? "bg-gray-700" : "bg-white"}`}
-                >
+                <Card className={`bg-gray-700 border border-white/10`}>
                   <CardContent className="p-6">
                     <h3
                       className={`text-lg font-semibold mb-3 ${
