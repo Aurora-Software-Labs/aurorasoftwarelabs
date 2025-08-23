@@ -71,7 +71,7 @@ export default function AboutPage() {
               variants={fadeInUp}
               className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
             >
-              <span className="text-primary">About Aurora</span>
+              <span className="text-white/90">About Aurora</span>
               <span className="text-[#67c970]"> Software Labs</span>
             </motion.h1>
             <motion.p
@@ -101,21 +101,19 @@ export default function AboutPage() {
             className="grid gap-12 lg:grid-cols-3"
           >
             <motion.div variants={fadeInUp}>
-              <Card
-                className={`h-full ${
-                  theme === "dark" ? "bg-gray-800" : "bg-white"
-                }`}
-              >
+              <Card className={`h-full bg-gray-800 border border-white/10`}>
                 <CardHeader>
                   <div className="flex items-center space-x-3">
                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#67c970]/10">
                       <Target className="h-6 w-6 text-[#67c970]" />
                     </div>
-                    <CardTitle className="text-2xl">Our Mission</CardTitle>
+                    <CardTitle className="text-2xl text-white/90">
+                      Our Mission
+                    </CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-base leading-7">
+                  <CardDescription className="text-base leading-7 text-white/55">
                     {companyInfo.mission}
                   </CardDescription>
                 </CardContent>
@@ -123,21 +121,19 @@ export default function AboutPage() {
             </motion.div>
 
             <motion.div variants={fadeInUp}>
-              <Card
-                className={`h-full ${
-                  theme === "dark" ? "bg-gray-800" : "bg-white"
-                }`}
-              >
+              <Card className={`h-full bg-gray-800 border border-white/10`}>
                 <CardHeader>
                   <div className="flex items-center space-x-3">
                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#67c970]/10">
                       <Eye className="h-6 w-6 text-[#67c970]" />
                     </div>
-                    <CardTitle className="text-2xl">Our Vision</CardTitle>
+                    <CardTitle className="text-2xl text-white/90">
+                      Our Vision
+                    </CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-base leading-7">
+                  <CardDescription className="text-base leading-7 text-white/55">
                     {companyInfo.vision}
                   </CardDescription>
                 </CardContent>
@@ -145,17 +141,15 @@ export default function AboutPage() {
             </motion.div>
 
             <motion.div variants={fadeInUp}>
-              <Card
-                className={`h-full ${
-                  theme === "dark" ? "bg-gray-800" : "bg-white"
-                }`}
-              >
+              <Card className={`h-full bg-gray-800 border border-white/10`}>
                 <CardHeader>
                   <div className="flex items-center space-x-3">
                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#67c970]/10">
                       <Users className="h-6 w-6 text-[#67c970]" />
                     </div>
-                    <CardTitle className="text-2xl">Our Values</CardTitle>
+                    <CardTitle className="text-2xl text-white/90">
+                      Our Values
+                    </CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent>
@@ -169,7 +163,9 @@ export default function AboutPage() {
                           className="flex items-center space-x-3"
                         >
                           <IconComponent className="h-5 w-5 text-[#67c970]" />
-                          <span className="font-medium">{value}</span>
+                          <span className="font-medium text-white/55">
+                            {value}
+                          </span>
                         </div>
                       );
                     })}
@@ -298,20 +294,18 @@ export default function AboutPage() {
             {whyChooseUs.map((reason, index) => (
               <motion.div key={reason.title} variants={fadeInUp}>
                 <Card
-                  className={`h-full hover:shadow-lg transition-shadow ${
-                    theme === "dark" ? "bg-gray-800" : "bg-white"
-                  }`}
+                  className={`h-full hover:shadow-lg transition-shadow border bg-gray-800 border-white/10`}
                 >
                   <CardHeader>
                     <CardTitle className="flex items-center space-x-3">
-                      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary font-bold text-sm">
+                      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white font-bold text-sm">
                         {index + 1}
                       </span>
-                      <span>{reason.title}</span>
+                      <span className="text-white">{reason.title}</span>
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-base">
+                    <CardDescription className="text-base text-white/55">
                       {reason.description}
                     </CardDescription>
                   </CardContent>
