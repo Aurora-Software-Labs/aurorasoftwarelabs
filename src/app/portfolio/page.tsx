@@ -59,7 +59,7 @@ export default function PortfolioPage() {
                 theme === "dark" ? "text-white" : "text-gray-900"
               } sm:text-6xl`}
             >
-              Our <span className="text-primary">Portfolio</span>
+              Our Portfolio
             </motion.h1>
             <motion.p
               variants={fadeInUp}
@@ -236,7 +236,11 @@ export default function PortfolioPage() {
 
                   {/* CTA Buttons */}
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Button asChild size="lg">
+                    <Button
+                      asChild
+                      size="lg"
+                      className="w-full sm:w-auto bg-white/90 text-gray-900 hover:bg-gray-100 px-4 py-2 rounded-md shadow-sm transition-transform duration-200 ease-out hover:scale-105 hover:shadow-md"
+                    >
                       <Link
                         href={project.url}
                         target="_blank"
@@ -246,7 +250,12 @@ export default function PortfolioPage() {
                         <ExternalLink className="ml-2 h-4 w-4" />
                       </Link>
                     </Button>
-                    <Button variant="outline" size="lg" asChild>
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      asChild
+                      className="w-full sm:w-auto border border-white/20 text-white bg-white/5 hover:bg-white/10 px-4 py-2 rounded-md shadow-sm transition-transform duration-200 ease-out hover:scale-105"
+                    >
                       <Link href="/contact">
                         Start Similar Project
                         <ArrowRight className="ml-2 h-4 w-4" />
@@ -299,14 +308,12 @@ export default function PortfolioPage() {
           >
             <motion.div variants={fadeInUp}>
               <Card
-                className={`text-center h-full ${
+                className={`text-center h-full border border-white/10 ${
                   theme === "dark" ? "bg-gray-700" : "bg-white"
                 }`}
               >
                 <CardContent className="pt-6">
-                  <div className="text-4xl font-bold text-primary mb-2">
-                    100%
-                  </div>
+                  <div className="text-4xl font-bold text-white mb-2">100%</div>
                   <h3
                     className={`text-lg font-semibold ${
                       theme === "dark" ? "text-white" : "text-gray-900"
@@ -327,7 +334,7 @@ export default function PortfolioPage() {
 
             <motion.div variants={fadeInUp}>
               <Card
-                className={`text-center h-full ${
+                className={`text-center h-full border border-white/10 ${
                   theme === "dark" ? "bg-gray-700" : "bg-white"
                 }`}
               >
@@ -355,12 +362,12 @@ export default function PortfolioPage() {
 
             <motion.div variants={fadeInUp}>
               <Card
-                className={`text-center h-full ${
+                className={`text-center h-full border border-white/10 ${
                   theme === "dark" ? "bg-gray-700" : "bg-white"
                 }`}
               >
                 <CardContent className="pt-6">
-                  <div className="text-4xl font-bold text-primary mb-2">
+                  <div className="text-4xl font-bold text-white mb-2">
                     99.9%
                   </div>
                   <h3
@@ -422,22 +429,14 @@ export default function PortfolioPage() {
             className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3"
           >
             <motion.div variants={fadeInUp}>
-              <Card
-                className={`h-full ${
-                  theme === "dark" ? "bg-gray-800" : "bg-white"
-                }`}
-              >
+              <Card className={`h-full bg-gray-800 border border-white/10`}>
                 <CardContent className="p-6">
-                  <p
-                    className={`mb-4 ${
-                      theme === "dark" ? "text-gray-300" : "text-gray-600"
-                    }`}
-                  >
+                  <p className={`mb-4 text-gray-300`}>
                     "Aurora Software Labs transformed our fashion brand's online
                     presence. The e-commerce platform they built has
                     significantly increased our sales and customer engagement."
                   </p>
-                  <div className="border-t pt-4">
+                  <div className="border-t border-white/10 pt-4">
                     <p
                       className={`font-semibold ${
                         theme === "dark" ? "text-white" : "text-gray-900"
@@ -458,11 +457,7 @@ export default function PortfolioPage() {
             </motion.div>
 
             <motion.div variants={fadeInUp}>
-              <Card
-                className={`h-full ${
-                  theme === "dark" ? "bg-gray-800" : "bg-white"
-                }`}
-              >
+              <Card className={`h-full bg-gray-800 border border-white/10`}>
                 <CardContent className="p-6">
                   <p
                     className={`mb-4 ${
@@ -473,14 +468,8 @@ export default function PortfolioPage() {
                     perfectly captured our message and helped us connect with
                     voters across campus. Highly recommended!"
                   </p>
-                  <div className="border-t pt-4">
-                    <p
-                      className={`font-semibold ${
-                        theme === "dark" ? "text-white" : "text-gray-900"
-                      }`}
-                    >
-                      Michael Yeng
-                    </p>
+                  <div className="border-t border-white/10 pt-4">
+                    <p className={`font-semibold text-white`}>Michael Yeng</p>
                     <p
                       className={`text-sm ${
                         theme === "dark" ? "text-gray-400" : "text-gray-500"
@@ -494,11 +483,7 @@ export default function PortfolioPage() {
             </motion.div>
 
             <motion.div variants={fadeInUp}>
-              <Card
-                className={`h-full ${
-                  theme === "dark" ? "bg-gray-800" : "bg-white"
-                }`}
-              >
+              <Card className={`h-full bg-gray-800 border border-white/10`}>
                 <CardContent className="p-6">
                   <p
                     className={`mb-4 ${
@@ -509,7 +494,7 @@ export default function PortfolioPage() {
                     platform. They understood our complex requirements and
                     delivered a solution that exceeded our expectations."
                   </p>
-                  <div className="border-t pt-4">
+                  <div className="border-t border-white/10 pt-4">
                     <p
                       className={`font-semibold ${
                         theme === "dark" ? "text-white" : "text-gray-900"
