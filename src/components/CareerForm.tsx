@@ -162,10 +162,12 @@ ${formData.message}`
   };
 
   return (
-    <Card className="bg-gray-900">
+    <Card className="bg-gray-900 border border-white/10">
       <CardHeader>
-        <CardTitle className="text-2xl">Apply to Join Our Team</CardTitle>
-        <CardDescription>
+        <CardTitle className="text-2xl text-white">
+          Apply to Join Our Team
+        </CardTitle>
+        <CardDescription className="text-white/55">
           Tell us about yourself and why you'd be a great fit for Aurora
           Software Labs.
         </CardDescription>
@@ -187,6 +189,7 @@ ${formData.message}`
                 value={formData.name}
                 onChange={handleChange}
                 required
+                className="bg-gray-800 border border-white/20 text-white placeholder:text-gray-400"
                 placeholder="Your full name"
               />
             </div>
@@ -204,6 +207,7 @@ ${formData.message}`
                 value={formData.email}
                 onChange={handleChange}
                 required
+                className="bg-gray-800 border border-white/20 text-white placeholder:text-gray-400"
                 placeholder="your.email@example.com"
               />
             </div>
@@ -223,6 +227,7 @@ ${formData.message}`
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
+                className="bg-gray-800 border border-white/20 text-white placeholder:text-gray-400"
                 placeholder="+233 XX XXX XXXX"
               />
             </div>
@@ -239,6 +244,7 @@ ${formData.message}`
                 name="position"
                 value={formData.position}
                 onChange={handleChange}
+                className="bg-gray-800 border border-white/20 text-white placeholder:text-gray-400"
                 placeholder="e.g., Frontend Developer, UI/UX Designer"
               />
             </div>
@@ -258,6 +264,7 @@ ${formData.message}`
                 name="experience"
                 value={formData.experience}
                 onChange={handleChange}
+                className="bg-gray-800 border border-white/20 text-white placeholder:text-gray-400"
                 placeholder="e.g., 3 years, Fresh Graduate"
               />
             </div>
@@ -274,6 +281,7 @@ ${formData.message}`
                 name="portfolio"
                 value={formData.portfolio}
                 onChange={handleChange}
+                className="bg-gray-800 border border-white/20 text-white placeholder:text-gray-400"
                 placeholder="https://yourportfolio.com"
               />
             </div>
@@ -292,6 +300,7 @@ ${formData.message}`
               name="linkedin"
               value={formData.linkedin}
               onChange={handleChange}
+              className="bg-gray-800 border border-white/20 text-white placeholder:text-gray-400"
               placeholder="https://linkedin.com/in/yourprofile"
             />
           </div>
@@ -318,7 +327,7 @@ ${formData.message}`
                   htmlFor="resume"
                   className="flex items-center justify-center w-full p-3 border-2 border-dashed rounded-md cursor-pointer transition-colors border-gray-600 hover:border-[#67c970] hover:bg-gray-700"
                 >
-                  <Upload className="mr-2" size={20} />
+                  <Upload className="mr-2 text-white" size={20} />
                   {files.resume ? (
                     <span className="font-medium text-[#67c970]">
                       {files.resume.name}
@@ -350,7 +359,7 @@ ${formData.message}`
                   htmlFor="coverLetter"
                   className="flex items-center justify-center w-full p-3 border-2 border-dashed rounded-md cursor-pointer transition-colors border-gray-600 hover:border-[#67c970] hover:bg-gray-700"
                 >
-                  <Upload className="mr-2" size={20} />
+                  <Upload className="mr-2 text-white" size={20} />
                   {files.coverLetter ? (
                     <span className="font-medium text-[#67c970]">
                       {files.coverLetter.name}
@@ -379,6 +388,7 @@ ${formData.message}`
               onChange={handleChange}
               required
               rows={6}
+              className="bg-gray-800 border border-white/20 text-white placeholder:text-gray-400 resize-none"
               placeholder="Tell us about your passion for software development, your career goals, and why you want to join Aurora Software Labs..."
             />
           </div>
@@ -412,7 +422,7 @@ ${formData.message}`
 
           <Button
             type="submit"
-            className="w-full"
+            className="w-full text-black bg-white hover:bg-white/80"
             disabled={isSubmitting}
             size="lg"
           >

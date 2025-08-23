@@ -94,7 +94,7 @@ export default function CareersPage() {
                 theme === "dark" ? "text-white" : "text-gray-900"
               } sm:text-6xl`}
             >
-              Join Our <span className="text-primary">Team</span>
+              Join Our Team
             </motion.h1>
             <motion.p
               variants={fadeIn}
@@ -151,20 +151,20 @@ export default function CareersPage() {
             {benefits.map((benefit) => (
               <motion.div key={benefit.title} variants={fadeIn}>
                 <Card
-                  className={`h-full hover:shadow-lg transition-shadow ${
-                    theme === "dark" ? "bg-gray-800" : "bg-white"
-                  }`}
+                  className={`h-full hover:shadow-lg transition-shadow bg-gray-800 border border-white/10`}
                 >
                   <CardHeader>
                     <div className="flex items-center space-x-3">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                        <benefit.icon className="h-6 w-6 text-primary" />
+                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10">
+                        <benefit.icon className="h-6 w-6 text-white" />
                       </div>
-                      <CardTitle>{benefit.title}</CardTitle>
+                      <CardTitle className="text-white/90">
+                        {benefit.title}
+                      </CardTitle>
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-base">
+                    <CardDescription className="text-base text-white/55">
                       {benefit.description}
                     </CardDescription>
                   </CardContent>
@@ -243,7 +243,7 @@ export default function CareersPage() {
                 <motion.div key={item.value} variants={fadeIn}>
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-black font-bold">
                         {index + 1}
                       </div>
                     </div>
@@ -316,7 +316,7 @@ export default function CareersPage() {
                 }`}
               >
                 <CardContent className="p-12">
-                  <Users className="h-16 w-16 text-primary mx-auto mb-6" />
+                  <Users className="h-16 w-16 text-white mx-auto mb-6" />
                   <h3
                     className={`text-2xl font-bold mb-4 ${
                       theme === "dark" ? "text-white" : "text-gray-900"
