@@ -1,8 +1,11 @@
 User-agent: *
 Allow: /
 
-# Sitemap location
-Sitemap: https://aurorasoftwarelabs.com/sitemap.xml
+# Block common unnecessary areas
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+Disallow: /server-scripts/
 
-# Disallow admin areas if any
-# Disallow: /admin/
+# Sitemap
+Sitemap: https://www.aurorasoftwalabs.io/sitemap.xml

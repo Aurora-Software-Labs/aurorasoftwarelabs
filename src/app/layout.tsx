@@ -9,6 +9,8 @@ const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700"],
 });
 
+export const metadataBase = new URL("https://www.aurorasoftwalabs.io");
+
 export const metadata: Metadata = {
   title: `Aurora Software Labs | The Northern Lights for Africa's Tech Frontier`,
   description: `Aurora Software Labs is the northern lights for Africa's tech frontier—guiding, inspiring, and illuminating the path to digital innovation across the continent.`,
@@ -23,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `Aurora Software Labs | The Northern Lights for Africa's Tech Frontier`,
     description: `Aurora Software Labs is the northern lights for Africa's tech frontier—guiding, inspiring, and illuminating the path to digital innovation across the continent.`,
-    url: "https://aurorasoftwarelabs.com",
+    url: "https://www.aurorasoftwalabs.io",
     siteName: "Aurora Software Labs",
     type: "website",
     locale: "en_US",
@@ -32,6 +34,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `Aurora Software Labs | The Northern Lights for Africa's Tech Frontier`,
     description: `Aurora Software Labs is the northern lights for Africa's tech frontier—guiding, inspiring, and illuminating the path to digital innovation across the continent.`,
+    // use metadataBase for full urls where relevant
+    images: ["/og-image.png"],
   },
 };
 
