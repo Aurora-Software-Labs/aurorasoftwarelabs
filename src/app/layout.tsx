@@ -1,54 +1,116 @@
+// app/layout.tsx
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/contexts/ThemeContext";
-
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-
-export const metadataBase = new URL("https://www.aurorasoftwalabs.io");
 
 export const metadata: Metadata = {
-  title: `Aurora Software Labs | The Northern Lights for Africa's Tech Frontier`,
-  description: `Aurora Software Labs is the northern lights for Africa's tech frontier—guiding, inspiring, and illuminating the path to digital innovation across the continent.`,
+  title: "Aurora Software Labs | Northern Lights for Africa's Tech Frontier",
+  description:
+    "Aurora Software Labs is building innovative web, mobile, and AI-powered solutions for Africa. Join us as we bring the Northern Lights to Africa's tech frontier.",
   keywords:
-    "software development, web development, Ghana, digital solutions, software consulting, e-commerce, web design",
+    "Aurora Software Labs, Africa tech, web development, AI solutions, Ghana software company, SaaS Africa, innovation labs, Aurora Labs Ghana",
   authors: [{ name: "Aurora Software Labs" }],
   creator: "Aurora Software Labs",
   publisher: "Aurora Software Labs",
-  icons: {
-    icon: "/favicon.ico",
+  metadataBase: new URL("https://www.aurorasoftwalabs.io"),
+  alternates: {
+    canonical: "https://www.aurorasoftwalabs.io",
   },
   openGraph: {
-    title: `Aurora Software Labs | The Northern Lights for Africa's Tech Frontier`,
-    description: `Aurora Software Labs is the northern lights for Africa's tech frontier—guiding, inspiring, and illuminating the path to digital innovation across the continent.`,
+    title: "Aurora Software Labs | Northern Lights for Africa's Tech Frontier",
+    description:
+      "Innovative software solutions from Ghana for Africa's tech frontier. Web, mobile, and AI development that empowers the future.",
     url: "https://www.aurorasoftwalabs.io",
     siteName: "Aurora Software Labs",
-    type: "website",
+    images: [
+      {
+        url: "https://www.aurorasoftwalabs.io/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Aurora Software Labs | Northern Lights for Africa's Tech Frontier",
+      },
+    ],
     locale: "en_US",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: `Aurora Software Labs | The Northern Lights for Africa's Tech Frontier`,
-    description: `Aurora Software Labs is the northern lights for Africa's tech frontier—guiding, inspiring, and illuminating the path to digital innovation across the continent.`,
-    // use metadataBase for full urls where relevant
-    images: ["/og-image.png"],
+    title: "Aurora Software Labs | Northern Lights for Africa's Tech Frontier",
+    description:
+      "Building Africa’s tech frontier with innovative web, mobile, and AI-powered solutions.",
+    images: ["https://www.aurorasoftwalabs.io/og-image.jpg"],
+    creator: "@aurorasoftwalabs",
   },
 };
 
+// ✅ Helper function to generate per-page metadata
+export function generatePageMetadata({
+  title,
+  description,
+  path,
+  image,
+}: {
+  title: string;
+  description: string;
+  path: string;
+  image?: string;
+}): Metadata {
+  const baseUrl = "https://www.aurorasoftwalabs.io";
+  return {
+    title: `${title} | Aurora Software Labs`,
+    description,
+    alternates: {
+      canonical: `${baseUrl}${path}`,
+    },
+    openGraph: {
+      title: `${title} | Aurora Software Labs`,
+      description,
+      url: `${baseUrl}${path}`,
+      images: [
+        {
+          url: image ?? `${baseUrl}/og-image.jpg`,
+          width: 1200,
+          height: 630,
+          alt: `${title} | Aurora Software Labs`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | Aurora Software Labs`,
+      description,
+      images: [image ?? `${baseUrl}/og-image.jpg`],
+    },
+  };
+}
+
+// app/layout.tsx continued
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} font-sans antialiased`}>
-        <ThemeProvider>{children}</ThemeProvider>
-      </body>
+      <head>
+        {/* ✅ JSON-LD Schema.org Organization */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Aurora Software Labs",
+              url: "https://www.aurorasoftwalabs.io",
+              logo: "https://www.aurorasoftwalabs.io/logo.png",
+              sameAs: [
+                "https://www.linkedin.com/company/aurorasoftwalabs",
+                "https://twitter.com/aurorasoftwalabs",
+              ],
+            }),
+          }}
+        />
+      </head>
+      <body>{children}</body>
     </html>
   );
 }
