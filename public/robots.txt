@@ -8,4 +8,4 @@ Disallow: /static/
 Disallow: /server-scripts/
 
 # Sitemap
-Sitemap: https://www.aurorasoftwalabs.io/sitemap.xml
+Sitemap: https://www.aurorasoftwarelabs.io/sitemap.xml

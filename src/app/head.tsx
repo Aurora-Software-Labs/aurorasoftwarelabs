@@ -5,8 +5,8 @@ export default function Head() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: companyInfo.name,
-    url: "https://www.aurorasoftwalabs.io",
-    logo: "https://www.aurorasoftwalabs.io/auroraLogoLight.png",
+    url: "https://www.aurorasoftwarelabs.io",
+    logo: "https://www.aurorasoftwarelabs.io/auroraLogoLight.png",
     email: companyInfo.email,
     address: {
       "@type": "PostalAddress",
@@ -23,7 +23,7 @@ export default function Head() {
         name="description"
         content="Guiding Africa's tech frontier like the Northern Lights—illuminating innovation, unlocking opportunity, and driving digital transformation."
       />
-      <link rel="canonical" href="https://www.aurorasoftwalabs.io/" />
+      <link rel="canonical" href="https://www.aurorasoftwarelabs.io/" />
 
       {/* Open Graph */}
       <meta
@@ -36,9 +36,9 @@ export default function Head() {
       />
       <meta
         property="og:image"
-        content="https://www.aurorasoftwalabs.io/og-image.png"
+        content="https://www.aurorasoftwarelabs.io/og-image.png"
       />
-      <meta property="og:url" content="https://www.aurorasoftwalabs.io/" />
+      <meta property="og:url" content="https://www.aurorasoftwarelabs.io/" />
       <meta property="og:type" content="website" />
 
       {/* Twitter */}
@@ -53,7 +53,7 @@ export default function Head() {
       />
       <meta
         name="twitter:image"
-        content="https://www.aurorasoftwalabs.io/og-image.png"
+        content="https://www.aurorasoftwarelabs.io/og-image.png"
       />
       <script
         type="application/ld+json"

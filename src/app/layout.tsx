@@ -19,19 +19,19 @@ export const metadata: Metadata = {
   authors: [{ name: "Aurora Software Labs" }],
   creator: "Aurora Software Labs",
   publisher: "Aurora Software Labs",
-  metadataBase: new URL("https://www.aurorasoftwalabs.io"),
+  metadataBase: new URL("https://www.aurorasoftwarelabs.io"),
   alternates: {
-    canonical: "https://www.aurorasoftwalabs.io",
+    canonical: "https://www.aurorasoftwarelabs.io",
   },
   openGraph: {
     title: "Aurora Software Labs | Northern Lights for Africa's Tech Frontier",
     description:
       "Innovative software solutions from Ghana for Africa's tech frontier. Web, mobile, and AI development that empowers the future.",
-    url: "https://www.aurorasoftwalabs.io",
+    url: "https://www.aurorasoftwarelabs.io",
     siteName: "Aurora Software Labs",
     images: [
       {
-        url: "https://www.aurorasoftwalabs.io/og-image.jpg",
+        url: "https://www.aurorasoftwarelabs.io/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Aurora Software Labs | Northern Lights for Africa's Tech Frontier",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: "Aurora Software Labs | Northern Lights for Africa's Tech Frontier",
     description:
       "Building Africa’s tech frontier with innovative web, mobile, and AI-powered solutions.",
-    images: ["https://www.aurorasoftwalabs.io/og-image.jpg"],
+    images: ["https://www.aurorasoftwarelabs.io/og-image.jpg"],
     creator: "@aurorasoftwalabs",
   },
 };
@@ -67,8 +67,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Aurora Software Labs",
-              url: "https://www.aurorasoftwalabs.io",
-              logo: "https://www.aurorasoftwalabs.io/logo.png",
+              url: "https://www.aurorasoftwarelabs.io",
+              logo: "https://www.aurorasoftwarelabs.io/logo.png",
               sameAs: [
                 "https://www.linkedin.com/company/aurorasoftwalabs",
                 "https://twitter.com/aurorasoftwalabs",

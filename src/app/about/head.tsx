@@ -6,7 +6,7 @@ export default function Head() {
         name="description"
         content="Learn about Aurora Software Labs: our mission, vision, and the team guiding digital transformation across Africa."
       />
-      <link rel="canonical" href="https://www.aurorasoftwalabs.io/about" />
+      <link rel="canonical" href="https://www.aurorasoftwarelabs.io/about" />
 
       <meta property="og:title" content="About — Aurora Software Labs" />
       <meta
@@ -15,9 +15,12 @@ export default function Head() {
       />
       <meta
         property="og:image"
-        content="https://www.aurorasoftwalabs.io/og-image.png"
+        content="https://www.aurorasoftwarelabs.io/og-image.png"
       />
-      <meta property="og:url" content="https://www.aurorasoftwalabs.io/about" />
+      <meta
+        property="og:url"
+        content="https://www.aurorasoftwarelabs.io/about"
+      />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="About — Aurora Software Labs" />
@@ -27,7 +30,7 @@ export default function Head() {
       />
       <meta
         name="twitter:image"
-        content="https://www.aurorasoftwalabs.io/og-image.png"
+        content="https://www.aurorasoftwarelabs.io/og-image.png"
       />
     </>
   );

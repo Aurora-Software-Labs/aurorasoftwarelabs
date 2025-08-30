@@ -12,7 +12,7 @@ export function generatePageMetadata({
   path: string;
   image?: string;
 }): Metadata {
-  const baseUrl = "https://www.aurorasoftwalabs.io";
+  const baseUrl = "https://www.aurorasoftwarelabs.io";
   return {
     title: `${title} | Aurora Software Labs`,
     description,

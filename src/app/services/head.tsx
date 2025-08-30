@@ -7,7 +7,7 @@ export default function Head() {
     provider: {
       "@type": "Organization",
       name: "Aurora Software Labs",
-      url: "https://www.aurorasoftwalabs.io",
+      url: "https://www.aurorasoftwarelabs.io",
     },
     serviceType: services.map((s) => s.title).join(", "),
     description:
@@ -21,7 +21,7 @@ export default function Head() {
         name="description"
         content="Comprehensive digital solutions from web development to software consulting tailored to help African businesses grow."
       />
-      <link rel="canonical" href="https://www.aurorasoftwalabs.io/services" />
+      <link rel="canonical" href="https://www.aurorasoftwarelabs.io/services" />
 
       <meta property="og:title" content="Services — Aurora Software Labs" />
       <meta
@@ -30,11 +30,11 @@ export default function Head() {
       />
       <meta
         property="og:image"
-        content="https://www.aurorasoftwalabs.io/og-image.png"
+        content="https://www.aurorasoftwarelabs.io/og-image.png"
       />
       <meta
         property="og:url"
-        content="https://www.aurorasoftwalabs.io/services"
+        content="https://www.aurorasoftwarelabs.io/services"
       />
 
       <meta name="twitter:card" content="summary_large_image" />
@@ -45,7 +45,7 @@ export default function Head() {
       />
       <meta
         name="twitter:image"
-        content="https://www.aurorasoftwalabs.io/og-image.png"
+        content="https://www.aurorasoftwarelabs.io/og-image.png"
       />
       <script
         type="application/ld+json"
