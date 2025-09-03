@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Code, Star, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 // Optimized, lighter animations
@@ -21,35 +21,61 @@ const staggerContainer = {
 };
 
 const Hero = () => {
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+
+  useEffect(() => {
+    // Preload video after page load to avoid blocking
+    const timer = setTimeout(() => {
+      const video = document.querySelector("video");
+      if (video) {
+        video.load();
+      }
+    }, 2000); // Load video 2 seconds after page load
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div>
       <section className="min-h-[calc(100vh-4rem)] md:min-h-screen flex items-center justify-center relative pt-16 overflow-hidden">
-        {/* Background Image */}
+        {/* Background - Image first, video loads later */}
         <div className="absolute inset-0 z-0">
-          {/* <Image
+          {/* Fallback image - loads immediately */}
+          <Image
             src="/aurora-landscape.jpg"
             alt="Aurora landscape"
             fill
             className="object-cover"
             priority
             sizes="100vw"
-          /> */}
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="object-cover w-full h-full"
-            poster="/aurora-landscape.jpg"
-          >
-            <source src="/aurora_infinite_loop.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+            quality={85}
+          />
+
+          {/* Video loads after image and content */}
+          {!videoError && (
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="none" // Don't preload video
+              className={`object-cover w-full h-full transition-opacity duration-1000 ${
+                videoLoaded ? "opacity-100" : "opacity-0"
+              }`}
+              poster="/aurora-landscape.jpg"
+              onLoadedData={() => setVideoLoaded(true)}
+              onError={() => setVideoError(true)}
+            >
+              <source src="/aurora_infinite_loop.mp4" type="video/mp4" />
+            </video>
+          )}
+
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900/45 via-gray-900/90 to-gray-900"></div>
         </div>
 
-        {/* Content */}
+        {/* Content - loads immediately */}
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial="initial"
