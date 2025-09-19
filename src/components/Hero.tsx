@@ -27,7 +27,7 @@ const Hero = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
-    // Delay starting the video load until the page has finished initial work
+    // Delay starting the video load until the page has finished initial works
     const startLoading = () => {
       // small delay so image/LCP gets priority
       const t = setTimeout(() => setShouldLoadVideo(true), 600);
