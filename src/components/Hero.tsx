@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -21,20 +21,102 @@ const staggerContainer = {
 };
 
 const Hero = () => {
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
+  const [showImage, setShowImage] = useState(true);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    // Delay starting the video load until the page has finished initial work
+    const startLoading = () => {
+      // small delay so image/LCP gets priority
+      const t = setTimeout(() => setShouldLoadVideo(true), 600);
+      return () => clearTimeout(t);
+    };
+
+    if (document.readyState === "complete") {
+      const cleanup = startLoading();
+      return cleanup;
+    }
+
+    window.addEventListener("load", startLoading);
+    return () => window.removeEventListener("load", startLoading);
+  }, []);
+
+  useEffect(() => {
+    if (!shouldLoadVideo || !videoRef.current) return;
+
+    const video = videoRef.current;
+
+    const handleLoadedData = () => {
+      // mark ready so we can fade the video in
+      setVideoReady(true);
+      // Try to play (in case autoplay was blocked earlier)
+      video.play().catch(() => {
+        // Wait for user interaction if autoplay blocked
+        const playOnInteraction = () => {
+          video.play().catch(() => {});
+          document.removeEventListener("click", playOnInteraction);
+          document.removeEventListener("touchstart", playOnInteraction);
+        };
+        document.addEventListener("click", playOnInteraction);
+        document.addEventListener("touchstart", playOnInteraction);
+      });
+
+      // After the fade completes remove the image element to free memory
+      const removeTimer = setTimeout(() => setShowImage(false), 750);
+      return () => clearTimeout(removeTimer);
+    };
+
+    const handleError = () => {
+      // If video fails, keep the image (videoReady stays false)
+      setVideoReady(false);
+    };
+
+    video.addEventListener("loadeddata", handleLoadedData);
+    video.addEventListener("error", handleError);
+
+    return () => {
+      video.removeEventListener("loadeddata", handleLoadedData);
+      video.removeEventListener("error", handleError);
+    };
+  }, [shouldLoadVideo]);
+
   return (
     <div>
       <section className="min-h-[calc(100vh-4rem)] md:min-h-screen flex items-center justify-center relative pt-16 overflow-hidden">
-        {/* Background Image */}
+        {/* Background */}
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/aurora-landscape.jpg"
-            alt="Aurora landscape"
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-            quality={85}
-          />
+          {/* Render the image while showImage is true */}
+          {showImage && (
+            <Image
+              src="/aurora-landscape.jpg"
+              alt="Aurora landscape"
+              fill
+              className="object-cover"
+              priority
+              sizes="100vw"
+              quality={85}
+            />
+          )}
+
+          {/* Video - only added to the DOM when shouldLoadVideo is true to avoid blocking LCP */}
+          {shouldLoadVideo && (
+            <video
+              ref={videoRef}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+                videoReady ? "opacity-100" : "opacity-0"
+              }`}
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            >
+              <source src="/aurora_infinite_loop.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          )}
+
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900/45 via-gray-900/90 to-gray-900"></div>
         </div>
