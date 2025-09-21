@@ -69,6 +69,22 @@ export const projects = [
     technologies: ["Next.js", "Framer Motion", "CMS Integration"],
     category: "Campaign Website",
   },
+  {
+    id: "rad-counselling",
+    title: "RAD Counselling Services",
+    description:
+      "A personal website for a professional counsellor, offering information about counselling services, booking options, and mental health resources for individuals and students.",
+    url: "https://radcounsellingservices.com",
+    image: "/radmockup.png",
+    technologies: [
+      "Next.js",
+      "Calendly",
+      "TailwindCSS",
+      "Framer Motion",
+      "Nodemailer",
+    ],
+    category: "Professional Website",
+  },
 ];
 
 export const testimonials = [

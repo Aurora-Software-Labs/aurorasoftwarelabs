@@ -202,7 +202,7 @@ export default function HomePage() {
             variants={staggerContainer}
             className="mx-auto mt-12 sm:mt-16 grid max-w-2xl grid-cols-1 gap-6 lg:max-w-none lg:grid-cols-3 lg:gap-8"
           >
-            {projects.map((project) => (
+            {projects.slice(0, 3).map((project) => (
               <motion.div key={project.id} variants={fadeIn}>
                 <Card className="h-full hover:shadow-lg transition-shadow duration-300 group bg-gray-800 border-gray-700">
                   <div className="aspect-[16/9] bg-gray-200 rounded-t-lg relative overflow-hidden">

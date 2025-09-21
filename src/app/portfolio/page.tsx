@@ -475,7 +475,7 @@ export default function PortfolioPage() {
                         theme === "dark" ? "text-gray-400" : "text-gray-500"
                       }`}
                     >
-                      Former SRC Candidate
+                      Former UGSRC Candidate
                     </p>
                   </div>
                 </CardContent>
