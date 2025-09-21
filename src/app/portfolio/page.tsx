@@ -104,6 +104,7 @@ export default function PortfolioPage() {
                           src={project.image}
                           alt={project.title}
                           fill
+                          priority
                           className="object-cover hover:scale-105 transition-transform duration-500"
                           sizes="(max-width: 768px) 100vw, 50vw"
                         />
@@ -229,6 +230,34 @@ export default function PortfolioPage() {
                           <li>• Event management and voter engagement tools</li>
                           <li>• Fast-loading with smooth animations</li>
                           <li>• Mobile-optimized for campaign outreach</li>
+                        </>
+                      )}
+                      {project.id === "rad-counselling" && (
+                        <>
+                          <li>
+                            • A modern, easy-to-navigate website for your
+                            practice
+                          </li>
+                          <li>
+                            • Simple online booking so clients can schedule
+                            appointments
+                          </li>
+                          <li>
+                            • Secure contact form with instant email
+                            confirmations
+                          </li>
+                          <li>
+                            • Mobile-friendly and accessible design that
+                            reflects your brand
+                          </li>
+                          <li>
+                            • Privacy-focused client intake to keep information
+                            safe
+                          </li>
+                          <li>
+                            • Clear calls-to-action and a consistent,
+                            professional layout
+                          </li>
                         </>
                       )}
                     </ul>
