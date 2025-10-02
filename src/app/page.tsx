@@ -16,6 +16,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { companyInfo, services, projects, testimonials } from "@/data";
 import Hero from "@/components/Hero";
+import AuroraSEOFeature from "@/components/AuroraSEOFeature";
 
 // Optimized, lighter animations
 const fadeIn = {
@@ -283,6 +284,9 @@ export default function HomePage() {
           </motion.div>
         </div>
       </section>
+
+      {/* Aurora SEO Feature */}
+      <AuroraSEOFeature />
 
       {/* Testimonials */}
       <section className="py-16 lg:py-20 bg-gray-800 text-white">
