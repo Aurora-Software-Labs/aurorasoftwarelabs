@@ -3,7 +3,14 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { Code, Settings, ArrowRight, CheckCircle, Star } from "lucide-react";
+import {
+  Code,
+  Settings,
+  Search,
+  ArrowRight,
+  CheckCircle,
+  Star,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -34,6 +41,7 @@ const staggerContainer = {
 const serviceIcons = {
   "web-development": Code,
   "software-consulting": Settings,
+  "search-engine-optimization": Search,
 };
 
 const serviceImages = {
@@ -45,6 +53,10 @@ const serviceImages = {
     light: "/consulting.png",
     dark: "/consulting-dark.png",
   },
+  "search-engine-optimization": {
+    light: "/seo.png",
+    dark: "/seo-dark.png",
+  }, // Will use icon fallback
 };
 
 export default function ServicesPage() {
@@ -235,7 +247,9 @@ export default function ServicesPage() {
                       >
                         {service.id === "web-development"
                           ? "Our Development Process"
-                          : "Our Consulting Approach"}
+                          : service.id === "software-consulting"
+                          ? "Our Consulting Approach"
+                          : "Our SEO Strategy"}
                       </h3>
                       <div className="space-y-4">
                         {service.id === "web-development" ? (
@@ -329,7 +343,7 @@ export default function ServicesPage() {
                               </div>
                             </div>
                           </>
-                        ) : (
+                        ) : service.id === "software-consulting" ? (
                           <>
                             <div className="flex items-start space-x-3">
                               <div className="flex-shrink-0 w-8 h-8 bg-[#67c970] text-[#67c970]-foreground rounded-full flex items-center justify-center text-sm font-medium">
@@ -428,6 +442,111 @@ export default function ServicesPage() {
                                   }`}
                                 >
                                   Continuous guidance and optimization
+                                </p>
+                              </div>
+                            </div>
+                          </>
+                        ) : (
+                          // SEO Service
+                          <>
+                            <div className="flex items-start space-x-3">
+                              <div className="flex-shrink-0 w-8 h-8 bg-[#67c970] text-black rounded-full flex items-center justify-center text-sm font-medium">
+                                1
+                              </div>
+                              <div>
+                                <h4
+                                  className={`font-medium ${
+                                    theme === "dark"
+                                      ? "text-white"
+                                      : "text-gray-900"
+                                  }`}
+                                >
+                                  SEO Audit & Analysis
+                                </h4>
+                                <p
+                                  className={`text-sm ${
+                                    theme === "dark"
+                                      ? "text-gray-300"
+                                      : "text-gray-600"
+                                  }`}
+                                >
+                                  Comprehensive review of your current SEO
+                                  performance
+                                </p>
+                              </div>
+                            </div>
+                            <div className="flex items-start space-x-3">
+                              <div className="flex-shrink-0 w-8 h-8 bg-[#67c970] text-black rounded-full flex items-center justify-center text-sm font-medium">
+                                2
+                              </div>
+                              <div>
+                                <h4
+                                  className={`font-medium ${
+                                    theme === "dark"
+                                      ? "text-white"
+                                      : "text-gray-900"
+                                  }`}
+                                >
+                                  Keyword Research & Strategy
+                                </h4>
+                                <p
+                                  className={`text-sm ${
+                                    theme === "dark"
+                                      ? "text-gray-300"
+                                      : "text-gray-600"
+                                  }`}
+                                >
+                                  Target the right keywords for your audience
+                                </p>
+                              </div>
+                            </div>
+                            <div className="flex items-start space-x-3">
+                              <div className="flex-shrink-0 w-8 h-8 bg-[#67c970] text-black rounded-full flex items-center justify-center text-sm font-medium">
+                                3
+                              </div>
+                              <div>
+                                <h4
+                                  className={`font-medium ${
+                                    theme === "dark"
+                                      ? "text-white"
+                                      : "text-gray-900"
+                                  }`}
+                                >
+                                  Implementation & Optimization
+                                </h4>
+                                <p
+                                  className={`text-sm ${
+                                    theme === "dark"
+                                      ? "text-gray-300"
+                                      : "text-gray-600"
+                                  }`}
+                                >
+                                  Execute improvements for better rankings
+                                </p>
+                              </div>
+                            </div>
+                            <div className="flex items-start space-x-3">
+                              <div className="flex-shrink-0 w-8 h-8 bg-[#67c970] text-black rounded-full flex items-center justify-center text-sm font-medium">
+                                4
+                              </div>
+                              <div>
+                                <h4
+                                  className={`font-medium ${
+                                    theme === "dark"
+                                      ? "text-white"
+                                      : "text-gray-900"
+                                  }`}
+                                >
+                                  Monitoring & Reporting
+                                </h4>
+                                <p
+                                  className={`text-sm ${
+                                    theme === "dark"
+                                      ? "text-gray-300"
+                                      : "text-gray-600"
+                                  }`}
+                                >
+                                  Track progress and continuous improvement
                                 </p>
                               </div>
                             </div>

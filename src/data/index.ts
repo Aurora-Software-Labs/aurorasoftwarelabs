@@ -36,6 +36,19 @@ export const services = [
       "Best Practices",
     ],
   },
+  {
+    id: "search-engine-optimization",
+    title: "Search Engine Optimization",
+    description:
+      "Comprehensive SEO strategies to improve your website's visibility and ranking on search engines, driving organic traffic and growth.",
+    features: [
+      "Technical SEO Audits",
+      "Keyword Research & Strategy",
+      "On-Page Optimization",
+      "Content Strategy",
+      "Performance Monitoring",
+    ],
+  },
 ];
 
 export const projects = [

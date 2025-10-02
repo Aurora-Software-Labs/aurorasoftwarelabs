@@ -3,7 +3,14 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Code, Star, ChevronRight } from "lucide-react";
+import {
+  ArrowRight,
+  Code,
+  Settings,
+  Search,
+  Star,
+  ChevronRight,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -117,7 +124,7 @@ export default function HomePage() {
             variants={staggerContainer}
             className="mx-auto mt-12 sm:mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:max-w-none lg:gap-8"
           >
-            {services.map((service) => (
+            {services.slice(0, 2).map((service) => (
               <motion.div key={service.id} variants={fadeIn}>
                 <Card className="h-full hover:shadow-lg transition-shadow duration-300 bg-gray-900 border-gray-700">
                   <CardHeader>
