@@ -255,7 +255,7 @@ export default function MyPage() {
         title="My Awesome Page"
         description="This is an amazing page built with Next.js"
         url="https://mysite.com/my-page"
-        image="https://mysite.com/og-image.jpg"
+        image="https://mysite.com/opengraph-image.png"
       />
       <div>
         <h1>My Page Content</h1>

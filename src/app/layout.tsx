@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "Aurora Software Labs",
     images: [
       {
-        url: "https://www.aurorasoftwarelabs.io/og-image.jpg",
+        url: "https://www.aurorasoftwarelabs.io/opengraph-image.png",
         width: 1200,
         height: 630,
         alt: "Aurora Software Labs | Northern Lights for Africa's Tech Frontier",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: "Aurora Software Labs | Northern Lights for Africa's Tech Frontier",
     description:
       "Building Africa’s tech frontier with innovative web, mobile, and AI-powered solutions.",
-    images: ["https://www.aurorasoftwarelabs.io/og-image.jpg"],
+    images: ["https://www.aurorasoftwarelabs.io/opengraph-image.png"],
     creator: "@aurorasoftwalabs",
   },
 };
